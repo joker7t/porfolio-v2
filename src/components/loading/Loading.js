@@ -1,60 +1,48 @@
 import React, { useEffect, useRef } from 'react';
 import style from './scss/Loading.module.scss';
+import { TimelineMax, Power2 } from 'gsap';
+import { gsap } from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+gsap.registerPlugin(CSSRulePlugin);
 
 const Loading = ({ appRef, setIsLoading, setIsLoaded }) => {
+    const loaderRef = useRef(null);
 
     useEffect(() => {
 
-        const loader = (delay) => {
-            // const app = appRef && appRef.current;
-            setTimeout(function () {
-                // app.addClass('loading');
-                setIsLoading(true);
-            }, delay);
-            setTimeout(function () {
-                setIsLoaded(true);
-            }, delay + 1700);
-        }
+        var tl = new TimelineMax();
 
-        loader(10);
+        tl
+            .to(loaderRef.current, 0.2, { opacity: 1 })
+            .to(CSSRulePlugin.getRule('body:before'), 0.001, { cssRule: { top: '50%' }, ease: Power2.easeOut }, 'close')
+            .to(CSSRulePlugin.getRule('body:after'), 0.001, { cssRule: { bottom: '50%' }, ease: Power2.easeOut }, 'close')
+
+            .to(CSSRulePlugin.getRule('body:before'), 0.2, { cssRule: { top: '0%' }, ease: Power2.easeOut }, '+=1.5', 'open')
+            .to(CSSRulePlugin.getRule('body:after'), 0.2, { cssRule: { bottom: '0%' }, ease: Power2.easeOut }, '-=0.2', 'open')
+            .to(loaderRef.current, 0.2, { opacity: 0 }, '-=0.2');
 
         //eslint-disable-next-line
     }, []);
 
     return (
-        <div className="container-spinner">
-            <svg className="loader" viewBox="0 0 100 100" overflow="visible">
-                <g className="core">
-                    <circle className="path" cx="50" cy="50" r="1" fill="none" />
-                </g>
-                <g className="spinner">
-                    <circle className="path" cx="50" cy="50" r="20" fill="none" />
-                </g>
-                <g className="layer-1">
-                    <circle className="path" cx="50" cy="50" r="70" fill="none" />
-                </g>
-                <g className="layer-2">
-                    <circle className="path" cx="50" cy="50" r="120" fill="none" />
-                </g>
-                <g className="layer-3">
-                    <circle className="path" cx="50" cy="50" r="180" fill="none" />
-                </g>
-                <g className="layer-4">
-                    <circle className="path" cx="50" cy="50" r="240" fill="none" />
-                </g>
-                <g className="layer-5">
-                    <circle className="path" cx="50" cy="50" r="300" fill="none" />
-                </g>
-                <g className="layer-6">
-                    <circle className="path" cx="50" cy="50" r="380" fill="none" />
-                </g>
-                <g className="layer-7">
-                    <circle className="path" cx="50" cy="50" r="450" fill="none" />
-                </g>
-                <g className="layer-8">
-                    <circle className="path" cx="50" cy="50" r="540" fill="none" />
-                </g>
-            </svg>
+        <div>
+            <div class="loader" ref={loaderRef}>
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="bar4"></div>
+                <div class="bar5"></div>
+                <div class="bar6"></div>
+            </div>
+
+            <main>
+                <div class="-content -index">
+                    <div>
+                        <h1>Loader Transition</h1>
+                        <a href="#" class="btn js-trigger-transition">Begin Transition</a>
+                    </div>
+                </div>
+            </main>
         </div>
     );
 }

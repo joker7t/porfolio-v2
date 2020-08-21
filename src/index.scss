@@ -1,6 +1,7 @@
 @import './util/scss/colors';
 @import './util/scss/transition';
 @import './util/scss/respond';
+@import './util/scss/keyframes';
 
 @font-face {
   font-family: 'Cosi Azure';
@@ -29,176 +30,144 @@ $theme-colors: (
 @import '~bootstrap/scss/bootstrap.scss';
 //end Bootstrap
 
+// body{
+//   box-sizing: border-box;
+//   font-family: 'Raleway', sans-serif;
+//   margin: 0;
+//   padding: 0;
+//   font-size: 16px;
+//   cursor: none;
+//   width: 100%;
+//   min-height: 100vh;
+// }
+
 body{
-  box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  cursor: none;
-  width: 100%;
-  min-height: 100vh;
-}
-
-/* -------------------
-  # LOADER
- ------------------- */
-
-$major: #EF836E;
-$minor: #eaeaea;
-$dur: 1.25s;
-$pi2: 3.14*2;
-
-$layerlist: (
-  // (radius, circumference, angle, width, color) //
-  1: (70,  $pi2*240, -30, 15, rgba($minor, .5)),
-  2: (120, $pi2*240, -60, 20, rgba($minor, .3)),
-  3: (180, $pi2*180, -70, 40, rgba($minor, .8)),
-  4: (240, $pi2*240, -90, 20, rgba($minor, .6)),
-  5: (300, $pi2*300, -20, 30, rgba($minor, .5)),
-  6: (380, $pi2*380, -80, 45, rgba($minor, .2)),
-  7: (450, $pi2*450, -10, 75, rgba($minor,  1)),
-  8: (540, $pi2*540, -70, 250, rgba($minor, .5))
-);
-
-@each $layer, $key in $layerlist {
-  $r: nth($key, 1);
-  $c: nth($key, 2);
-  $angle: nth($key, 3);
-  $width: nth($key, 4);
-  $color: nth($key, 5);
-  .layer-#{$layer} > .path {
-    stroke: $color;
-    stroke-width: $width;
-    stroke-dasharray: $c;
-    stroke-dashoffset: $c;
-    visibility: hidden;
-    @include transform(rotate(#{$angle}deg));
-    .loaded & {
-      visibility: visible;
-      @include animation(layer-#{$layer} $dur ease-in);
-    }
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #4089a6;
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  
+  &:before,
+  &:after{
+    content: '';
+    height: 50vh;
+    width:100%;
+    position:fixed;
+    left:0;
+    background: #1c2020;
+    z-index:1;
   }
-  @keyframes layer-#{$layer} {
-    0% {
-      stroke-dasharray: $c;
-      stroke-dashoffset: $c;
+  
+  &:before{
+    top: 0;
+    transform: translateY(-100%);
+  }
+  &:after{
+    bottom: 0;
+    transform: translateY(100%);
+  }
+  
+  /*&.is-changing{
+    &:before,
+    &:after{
+      transform: translateY(0);
     }
-    75% {
-      stroke-width: $width;
-      stroke-dashoffset: $c/2;
-    }
-    100% {
-      stroke: $minor;
-      stroke-width: $width*3;
-      @if ($layer == 1) { stroke-width: $width*15; }
-      stroke-dasharray: $c+$pi2;
-      stroke-dashoffset: 0;
-      @include transform(rotate(#{$angle+480}deg));
-    }
+  }*/
+  
+}
+h1{
+  color: #1c2020;
+  margin-bottom: 1em;
+  font-size: 2.2rem;
+  font-weight: 100;
+}
+.btn{
+  display: inline-block;
+  padding: 1.4em 1.6em;
+  margin-bottom: 2em;
+  border-radius: 50em;
+  background-color: lighten(#1c2020, 10%);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  
+  &:hover{
+    background-color: lighten(#1c2020, 15%);
   }
 }
-
 .loader {
+  margin: 0 auto;
+  width: 60px;
+  height: 50px;
+  text-align: center;
+  font-size: 10px;
   position: absolute;
-  @extend .center;
-  width: 120px;
-  height: 120px;
-  @include transform(scale(1));
-  z-index: 1999;
-  .loaded & {
-    @include transform(scale(0));
-    @include transition(all $dur+1 forwards $dur ease-in-out);
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  z-index: 500;
+  opacity: 0;
+  
+  > div {
+    height: 100%;
+    width: 8px;
+    display: inline-block;
+    margin-left: 2px;
+    animation: delay 0.8s infinite ease-in-out;
   }
-  g, circle {
-    transform-origin: 50% 50%;
+  
+  .bar1{
+    background-color: #754fa0 ;
+  }
+  .bar2{
+    background-color: #09b7bf;
+    animation-delay: -0.7s;
+  }
+  .bar3{
+    background-color: #90d36b;
+    animation-delay: -0.6s;
+  }
+  .bar4{
+    background-color: #f2d40d;
+    animation-delay: -0.5s;
+  }
+  .bar5{
+    background-color: #fcb12b;
+    animation-delay: -0.4s;
+  }
+  .bar6{
+    background-color: #ed1b72;
+    animation-delay: -0.3s;
   }
 }
-
-.core {
-  > .path {
-    fill: $major;
-    visibility: hidden;
-    @include scale(1);
-    @include transition(all $dur/2 $dur/8 ease-in-out);
-    .loaded & {
-      @include animation(core-loaded $dur*2 ease-in-out);
+main {
+  height: 100vh;
+  /* padding: 10px; */
+  text-align: center;
+  
+  .-content{
+    position: relative;
+    height: 100vh;
+    
+    > div {
+      height: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+    }
+    
+    &.-index{
+        background-color: #f6f6f6;
+        display: table;
+        width: 100%;
+      
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
   }
 }
-
-@keyframes core-loaded {
-  0% {
-    visibility: hidden;
-    @include scale(1);
-  }
-  25%, 85% {
-    opacity: 1;
-    visibility: visible;
-    @include scale(1000);
-  }
-  100% {
-    opacity: 0;
-    @include scale(1);
-  }
-}
-
-$R: 25;
-$c: 2 * 3.14 * $R;
-
-.spinner {
-  opacity: 1;
-  @include transition(opacity .1s .1s);
-  @include animation(rotate $dur linear infinite);
-  .loaded & {
-    opacity: 0;
-  }
-  > .path {
-    stroke: $major;
-    stroke-width: 6;
-    stroke-dasharray: $c;
-    stroke-dashoffset: $c;
-    @include animation(spinner $dur both infinite ease-in-out);
-  }
-}
-
-@keyframes rotate {
-  0%   { @include transform(rotate(0deg)); }
-  100% { @include transform(rotate(270deg)); }
-}
-
-@keyframes spinner {
-  0% {
-    stroke-dasharray: $c;
-    stroke-dashoffset: $c;
-  }
-  65%  {
-    stroke-dasharray: $c;
-    stroke-dashoffset: $c / 4;
-    transform: rotate(135deg);
-  }
-  100% {
-    stroke-dasharray: $c;
-    stroke-dashoffset: $c;
-    transform: rotate(450deg);
-  }
-}
-
-.container-spinner {
-  position: fixed;
-  @extend .center;
-  overflow: hidden;
-}
-
-.center {
-  top: 0; left: 0; right: 0; bottom: 0;
-  margin: auto;
-}
-
-.loader, .core, .spinner, .path {
-  @include transform(translate3d(0, 0, 0));
-}
-
-/* -------------------
-  # END LOADER
- ------------------- */
