@@ -85,6 +85,22 @@
     -o-transform: $trans;
   }
 
+  @mixin animation($animate) {
+    animation: $animate;
+    -webkit-animation: $animate;
+    -moz-animation: $animate;
+    -ms-animation: $animate;
+    -o-animation: $animate;
+  }
+
+  @mixin animation-delay($delay) {
+    animation-delay: $delay;
+    -webkit-animation-delay: $delay;
+    -moz-animation-delay: $delay;
+    -ms-animation-delay: $delay;
+    -o-animation-delay: $delay;
+  }
+
   @mixin absCenter {
     position: absolute;
     top: 50%;

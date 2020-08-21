@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import style from './App.module.scss';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './components/home/Home';
@@ -6,9 +6,14 @@ import About from './components/about/About';
 import Skill from './components/skill/Skill';
 import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
+import Loading from './components/loading/Loading';
 
 function App() {
+  const appRef = null;
   const cursorRef = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const editCursor = (e) => {
@@ -23,7 +28,8 @@ function App() {
 
   return (
     <Router>
-      <div className={style.App}>
+      <div className={`${style.App} ${isLoading ? 'loading' : ''} ${isLoaded ? 'loaded' : ''}`} ref={appRef}>
+        <Loading page={appRef} setIsLoading={setIsLoading} setIsLoaded={setIsLoaded} />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
