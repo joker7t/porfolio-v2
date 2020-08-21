@@ -1,0 +1,58 @@
+@import './util/scss/colors';
+@import './util/scss/transition';
+@import './util/scss/respond';
+
+@font-face {
+  font-family: 'Cosi Azure';
+  src: local('Cosi Azure'), url(./resources/fonts/Cosi-Azure/Cosi-Azure-Black-Stencil.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosi Azure';
+    font-weight: 900;
+    src: local('Cosi Azure'), url(./resources/fonts/Cosi-Azure/Cosi-Azure-Black.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Cosi Azure';
+    font-weight: 900;
+    src: local('Cosi Azure'), url(./resources/fonts/Cosi-Azure/Cosi-Azure-Bold.otf) format('opentype');
+}
+
+// import Boostrap and custom it
+// change the theme
+$theme-colors: (
+  "primary": $color-primary,
+);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+//end Bootstrap
+
+body{
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  cursor: none;
+}
+
+.cursor{
+  pointer-events: none;
+  cursor: none;
+  position: fixed;
+  padding: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  @include translateXY(-50%, -50%);
+  @include transition(transform 0.3s ease);
+  z-index: 2000;
+
+  @media only screen and (hover: none) and (pointer: coarse){
+    display: none;
+  }
+}
