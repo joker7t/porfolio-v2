@@ -4,7 +4,7 @@ import style from './scss/Home.module.scss';
 const Home = () => {
     return (
         <div className={style.Home}>
-
+            Home
         </div>
     );
 }

@@ -7,6 +7,7 @@ import Skill from './components/skill/Skill';
 import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
 import Loading from './components/loading/Loading';
+import NavigationBar from './util/components/NavigationBar';
 
 function App() {
   const appRef = null;
@@ -26,10 +27,12 @@ function App() {
     //eslint-disable-next-line
   }, []);
 
+  // <Loading page={appRef} setIsLoading={setIsLoading} setIsLoaded={setIsLoaded} />
+
   return (
     <Router>
       <div className={`${style.App} ${isLoading ? 'loading' : ''} ${isLoaded ? 'loaded' : ''}`} ref={appRef}>
-        <Loading page={appRef} setIsLoading={setIsLoading} setIsLoaded={setIsLoaded} />
+        <NavigationBar />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/about' component={About} />
