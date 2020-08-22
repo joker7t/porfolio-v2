@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import style from './scss/NameCard.module.scss';
 
 const NameCard = () => {
@@ -13,8 +13,8 @@ const NameCard = () => {
 
 	return (
 		<div>
-			<div className={`${isAnimate ? style.Animate : ''}`}>
-				<div className={style.Unbreakable}>
+			<div className={`${isAnimate ? style.Animate : ''}`} style={{ display: 'inline-block' }}>
+				<div className={style.Container}>
 					<span className={style.Line1}>I'M</span>
 					<span className={style.LineAdditional}>A</span>
 					<span className={style.Line2}>WEB</span>

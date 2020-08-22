@@ -1,0 +1,37 @@
+$loading-color: #fff;
+$loading-color-container: #fdb515;
+
+.LoadingContainer {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 999;
+	background: $loading-color-container;
+	cursor: none;
+}
+
+.LoadingIcon {
+	position: absolute;
+	width: 240px;
+	height: 120px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	z-index: 998;
+}
+
+.Plug,
+.Socket {
+	fill: $loading-color;
+}
+
+.LoopNormal {
+	fill: none;
+	stroke: $loading-color;
+	stroke-width: 12;
+}
+.LoopOffset {
+	display: none;
+}

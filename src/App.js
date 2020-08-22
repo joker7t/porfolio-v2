@@ -26,7 +26,7 @@ function App() {
 
 		setTimeout(() => {
 			setIsLoading(false);
-		}, 1500);
+		}, 150000);
 
 		//eslint-disable-next-line
 	}, []);
