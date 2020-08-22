@@ -30,20 +30,20 @@ function App() {
 
 	return (
 		<div style={{ cursor: 'none' }}>
-			<div class="splash">
-				<div class="splash_logo">TN</div>
-				<div class="splash_svg">
+			<div className={style.Splash}>
+				<div className={style.SplashLogo}>TN</div>
+				<div className={style.SplashSvg}>
 					<svg width="100%" height="100%">
 						<rect width="100%" height="100%" />
 					</svg>
 				</div>
-				<div class="splash_minimize">
+				<div className={style.SplashMinimize}>
 					<svg width="100%" height="100%">
 						<rect width="100%" height="100%" />
 					</svg>
 				</div>
 			</div>
-			<div class="text">
+			<div className={style.Container}>
 				{isLoading ? null : (
 					<div>
 						<Router>

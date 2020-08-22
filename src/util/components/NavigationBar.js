@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
 import { TweenMax } from 'gsap';
+import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
 	const line1Ref = useRef(null);
@@ -11,15 +12,28 @@ const NavigationBar = () => {
 
 	const data = [
 		{
-			url: 'aa',
+			name: 'Home',
+			url: '/',
 			icon: {},
 		},
 		{
-			url: 'bb',
+			name: 'About',
+			url: '/about',
 			icon: {},
 		},
 		{
-			url: 'cc',
+			name: 'Skill',
+			url: '/skill',
+			icon: {},
+		},
+		{
+			name: 'Work',
+			url: '/work',
+			icon: {},
+		},
+		{
+			name: 'Contact',
+			url: '/contact',
 			icon: {},
 		},
 	];
@@ -35,9 +49,9 @@ const NavigationBar = () => {
 	const showItems = () =>
 		data.map((item, i) => (
 			<li>
-				<a class={style.Item} href="">
-					<i class="icon-reorder"></i> {item.url}
-				</a>
+				<Link className={style.Item} to={item.url}>
+					<i class="icon-reorder"></i> {item.name}
+				</Link>
 			</li>
 		));
 
