@@ -6,15 +6,12 @@ $green: #2b9f5e;
 $yellow: #f1c83c;
 $shadow: #533d4a;
 
-
-
 .container1{
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   display: block;
   position: absolute;
-//   max-width: 700;
   font-family: 'Fjalla One', sans-serif;
 }
 
@@ -41,40 +38,58 @@ $shadow: #533d4a;
 h1{
   color: #fff;
   text-transform: uppercase;
-//   font-size: 82px;
+  font-size: 42px;
   margin: 0;
   line-height: 47px;
   letter-spacing: 2px;
 }
 
 .title{
-//   transform: translateX(-50%) rotate(-10deg);
+  transform: translateX(-50%) rotate(-10deg);
   display: block;
   float: left;
   left: 50%;
   position: relative;
   opacity: 1;
-  font-size: 60px;
   
-//   span {
-    transform: skew(-10deg) rotate(-10deg);
-    // display: block;
-    // float: left;
+  span {
+    transform: skew(-10deg);
+    display: block;
+    float: left;
     text-shadow: $shadow 1px 1px, $shadow 2px 2px, $shadow 3px 3px, $shadow 4px 4px, $shadow 5px 5px, $shadow 6px 6px;
     min-width: 10px;
     min-height: 10px;
-	// position: relative;
-//   }
+    position: relative;
+  }
+
+  &:nth-child(1){
+	span {
+		color: $red;
+	}
+  }
+
+  &:nth-child(2){
+	span {
+		color: $green;
+	}
+  }
+
+  &:nth-child(3){
+	span{
+		color: $yellow;
+	}
+  }
+
 }
 
-.title{
-  &:nth-child(1){
-    color: $red;
-  }
-  &:nth-child(2){
-    color: $green;
-  }
-  &:nth-child(3){
-    color: $yellow;
-  }
-}
+// .title{
+//   &:nth-child(1){
+//     color: $red;
+//   }
+//   &:nth-child(2){
+//     color: $green;
+//   }
+//   &:nth-child(3){
+//     color: $yellow;
+//   }
+// }

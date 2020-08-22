@@ -6,45 +6,53 @@ import About from './components/about/About';
 import Skill from './components/skill/Skill';
 import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
-import Loading from './components/loading/Loading';
+import LoadingPage from './components/loading/LoadingPage';
 import NavigationBar from './util/components/NavigationBar';
 
 function App() {
-  const appRef = null;
-  const cursorRef = useRef(null);
+	const appRef = null;
+	const cursorRef = useRef(null);
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+	const [isLoading, setIsLoading] = useState(true);
+	const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    const editCursor = (e) => {
-      const { clientX: x, clientY: y } = e;
-      cursorRef.current.style.left = x + 'px';
-      cursorRef.current.style.top = y + 'px';
-    }
-    window.addEventListener('mousemove', editCursor);
+	useEffect(() => {
+		const editCursor = (e) => {
+			const { clientX: x, clientY: y } = e;
+			cursorRef.current.style.left = x + 'px';
+			cursorRef.current.style.top = y + 'px';
+		};
+		window.addEventListener('mousemove', editCursor);
 
-    //eslint-disable-next-line
-  }, []);
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 1500);
 
-  // <Loading page={appRef} setIsLoading={setIsLoading} setIsLoaded={setIsLoaded} />
+		//eslint-disable-next-line
+	}, []);
 
-  return (
-    <Router>
-      <div className={`${style.App} ${isLoading ? 'loading' : ''} ${isLoaded ? 'loaded' : ''}`} ref={appRef}>
-        <NavigationBar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/about' component={About} />
-          <Route exact path='/skill' component={Skill} />
-          <Route exact path='/work' component={Work} />
-          <Route exact path='/contact' component={Contact} />
-          <Redirect from="*" to="/" />
-        </Switch>
-      </div>
-      <div className={style.Cursor} ref={cursorRef}></div>
-    </Router>
-  );
+	// <Loading page={appRef} setIsLoading={setIsLoading} setIsLoaded={setIsLoaded} />
+
+	return (
+		<div className={`${style.App} ${isLoading ? 'loading' : ''} ${isLoaded ? 'loaded' : ''}`} ref={appRef}>
+			{isLoading ? (
+				<LoadingPage />
+			) : (
+				<Router>
+					<NavigationBar />
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/about" component={About} />
+						<Route exact path="/skill" component={Skill} />
+						<Route exact path="/work" component={Work} />
+						<Route exact path="/contact" component={Contact} />
+						<Redirect from="*" to="/" />
+					</Switch>
+				</Router>
+			)}
+			<div className={style.Cursor} ref={cursorRef}></div>
+		</div>
+	);
 }
 
 export default App;

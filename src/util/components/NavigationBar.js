@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
-import { TimelineMax, TweenMax } from 'gsap';
+import { TweenMax } from 'gsap';
 
 const NavigationBar = () => {
 	const line1Ref = useRef(null);
