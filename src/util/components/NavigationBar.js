@@ -1,9 +1,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
-import { TimelineMax } from 'gsap';
+import { TimelineMax, TweenMax } from 'gsap';
 
 const NavigationBar = () => {
 	const line1Ref = useRef(null);
+	const line2Ref = useRef(null);
+	const line3Ref = useRef(null);
+	const line4Ref = useRef(null);
 	const [isPowerActive, setIsPowerActive] = useState(false);
 
 	const data = [
@@ -22,12 +25,11 @@ const NavigationBar = () => {
 	];
 
 	useEffect(() => {
-		const tl = new TimelineMax();
-		// tl.to(line1Ref.current, 1, { left: '100%' });
-
-		// setTimeout(() => {
-		// 	setIsPowerActive(true);
-		// }, 1000);
+		TweenMax.to(line1Ref.current, 1, { left: '100%' });
+		TweenMax.to(line2Ref.current, 1, { top: '100%', delay: 0.25 });
+		TweenMax.to(line3Ref.current, 1, { right: '100%', delay: 0.5 });
+		TweenMax.to(line4Ref.current, 1, { bottom: '100%', delay: 0.75 });
+		setIsPowerActive(true);
 	}, []);
 
 	const showItems = () =>
@@ -45,9 +47,9 @@ const NavigationBar = () => {
 				<li className={style.PowerButton}>
 					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
 						<span ref={line1Ref}></span>
-						<span></span>
-						<span></span>
-						<span></span>
+						<span ref={line2Ref}></span>
+						<span ref={line3Ref}></span>
+						<span ref={line4Ref}></span>
 						Neon button
 					</div>
 				</li>
