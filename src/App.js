@@ -6,15 +6,12 @@ import About from './components/about/About';
 import Skill from './components/skill/Skill';
 import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
-import LoadingPage from './components/loading/LoadingPage';
 import NavigationBar from './util/components/NavigationBar';
 
 function App() {
-	const appRef = useRef(null);
 	const cursorRef = useRef(null);
 
 	const [isLoading, setIsLoading] = useState(true);
-	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
 		const editCursor = (e) => {
@@ -30,8 +27,6 @@ function App() {
 
 		//eslint-disable-next-line
 	}, []);
-
-	// <Loading page={appRef} setIsLoading={setIsLoading} setIsLoaded={setIsLoaded} />
 
 	return (
 		<div style={{ cursor: 'none' }}>
@@ -50,10 +45,7 @@ function App() {
 			</div>
 			<div class="text">
 				{isLoading ? null : (
-					<div
-						className={`${style.App} ${isLoading ? 'loading' : ''} ${isLoaded ? 'loaded' : ''}`}
-						ref={appRef}
-					>
+					<div>
 						<Router>
 							<NavigationBar />
 							<Switch>
