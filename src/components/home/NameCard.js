@@ -9,7 +9,7 @@ const NameCard = () => {
 			setIsAnimate(true);
 		}
 		animate();
-	});
+	}, []);
 
 	return (
 		<div>
