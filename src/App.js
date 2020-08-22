@@ -36,7 +36,7 @@ function App() {
 	return (
 		<div>
 			<div class="splash">
-				<div class="splash_logo">BJL</div>
+				<div class="splash_logo">TN</div>
 				<div class="splash_svg">
 					<svg width="100%" height="100%">
 						<rect width="100%" height="100%" />
