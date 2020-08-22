@@ -30,164 +30,159 @@ $theme-colors: (
 @import '~bootstrap/scss/bootstrap.scss';
 //end Bootstrap
 
-// body{
-//   box-sizing: border-box;
-//   font-family: 'Raleway', sans-serif;
-//   margin: 0;
-//   padding: 0;
-//   font-size: 16px;
-//   cursor: none;
-//   width: 100%;
-//   min-height: 100vh;
-// }
+body {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	cursor: none;
+	width: 100%;
+	min-height: 100vh;
+	background: $color-black;
+}
 
 a {
 	text-decoration: none;
 	cursor: none;
 }
 
-body {
-	font-size: 1.6rem;
-	font-family: 'Open Sans', sans-serif;
-	color: #4089a6;
-	background-color: #ffffff;
-	-webkit-font-smoothing: antialiased;
+// body {
+// 	font-size: 1.6rem;
+// 	font-family: 'Open Sans', sans-serif;
+// 	color: #4089a6;
+// 	background-color: #ffffff;
+// 	-webkit-font-smoothing: antialiased;
 
-	&:before,
-	&:after {
-		content: '';
-		height: 50vh;
-		width: 100%;
-		position: fixed;
-		left: 0;
-		background: #1c2020;
-		z-index: 1;
-	}
+// 	&:before,
+// 	&:after {
+// 		content: '';
+// 		height: 50vh;
+// 		width: 100%;
+// 		position: fixed;
+// 		left: 0;
+// 		background: #1c2020;
+// 		z-index: 1;
+// 	}
 
-	&:before {
-		top: 0;
-		transform: translateY(-100%);
-	}
-	&:after {
-		bottom: 0;
-		transform: translateY(100%);
-	}
+// 	&:before {
+// 		top: 0;
+// 		transform: translateY(-100%);
+// 	}
+// 	&:after {
+// 		bottom: 0;
+// 		transform: translateY(100%);
+// 	}
 
-	/*&.is-changing{
-    &:before,
-    &:after{
-      transform: translateY(0);
-    }
-  }*/
-}
-h1 {
-	color: #1c2020;
-	margin-bottom: 1em;
-	font-size: 2.2rem;
-	font-weight: 100;
-}
-.btn {
-	display: inline-block;
-	padding: 1.4em 1.6em;
-	margin-bottom: 2em;
-	border-radius: 50em;
-	background-color: lighten(#1c2020, 10%);
-	color: #ffffff;
-	font-weight: bold;
-	font-size: 0.8rem;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	text-decoration: none;
+// 	/*&.is-changing{
+//     &:before,
+//     &:after{
+//       transform: translateY(0);
+//     }
+//   }*/
+// }
+// h1 {
+// 	color: #1c2020;
+// 	margin-bottom: 1em;
+// 	font-size: 2.2rem;
+// 	font-weight: 100;
+// }
+// .btn {
+// 	display: inline-block;
+// 	padding: 1.4em 1.6em;
+// 	margin-bottom: 2em;
+// 	border-radius: 50em;
+// 	background-color: lighten(#1c2020, 10%);
+// 	color: #ffffff;
+// 	font-weight: bold;
+// 	font-size: 0.8rem;
+// 	letter-spacing: 1px;
+// 	text-transform: uppercase;
+// 	text-decoration: none;
 
-	&:hover {
-		background-color: lighten(#1c2020, 15%);
-	}
-}
-.loader {
-	margin: 0 auto;
-	width: 60px;
-	height: 50px;
-	text-align: center;
-	font-size: 10px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateY(-50%) translateX(-50%);
-	z-index: 500;
-	opacity: 0;
+// 	&:hover {
+// 		background-color: lighten(#1c2020, 15%);
+// 	}
+// }
+// .loader {
+// 	margin: 0 auto;
+// 	width: 60px;
+// 	height: 50px;
+// 	text-align: center;
+// 	font-size: 10px;
+// 	position: absolute;
+// 	top: 50%;
+// 	left: 50%;
+// 	transform: translateY(-50%) translateX(-50%);
+// 	z-index: 500;
+// 	opacity: 0;
 
-	> div {
-		height: 100%;
-		width: 8px;
-		display: inline-block;
-		margin-left: 2px;
-		animation: delay 0.8s infinite ease-in-out;
-	}
+// 	> div {
+// 		height: 100%;
+// 		width: 8px;
+// 		display: inline-block;
+// 		margin-left: 2px;
+// 		animation: delay 0.8s infinite ease-in-out;
+// 	}
 
-	.bar1 {
-		background-color: #754fa0;
-	}
-	.bar2 {
-		background-color: #09b7bf;
-		animation-delay: -0.7s;
-	}
-	.bar3 {
-		background-color: #90d36b;
-		animation-delay: -0.6s;
-	}
-	.bar4 {
-		background-color: #f2d40d;
-		animation-delay: -0.5s;
-	}
-	.bar5 {
-		background-color: #fcb12b;
-		animation-delay: -0.4s;
-	}
-	.bar6 {
-		background-color: #ed1b72;
-		animation-delay: -0.3s;
-	}
-}
-main {
-	height: 100vh;
-	/* padding: 10px; */
-	text-align: center;
+// 	.bar1 {
+// 		background-color: #754fa0;
+// 	}
+// 	.bar2 {
+// 		background-color: #09b7bf;
+// 		animation-delay: -0.7s;
+// 	}
+// 	.bar3 {
+// 		background-color: #90d36b;
+// 		animation-delay: -0.6s;
+// 	}
+// 	.bar4 {
+// 		background-color: #f2d40d;
+// 		animation-delay: -0.5s;
+// 	}
+// 	.bar5 {
+// 		background-color: #fcb12b;
+// 		animation-delay: -0.4s;
+// 	}
+// 	.bar6 {
+// 		background-color: #ed1b72;
+// 		animation-delay: -0.3s;
+// 	}
+// }
+// main {
+// 	height: 100vh;
+// 	/* padding: 10px; */
+// 	text-align: center;
 
-	.-content {
-		position: relative;
-		height: 100vh;
+// 	.-content {
+// 		position: relative;
+// 		height: 100vh;
 
-		> div {
-			height: 100%;
-			overflow: hidden;
-			overflow-y: auto;
-		}
+// 		> div {
+// 			height: 100%;
+// 			overflow: hidden;
+// 			overflow-y: auto;
+// 		}
 
-		&.-index {
-			background-color: #f6f6f6;
-			display: table;
-			width: 100%;
+// 		&.-index {
+// 			background-color: #f6f6f6;
+// 			display: table;
+// 			width: 100%;
 
-			> div {
-				display: table-cell;
-				vertical-align: middle;
-			}
-		}
-	}
-}
+// 			> div {
+// 				display: table-cell;
+// 				vertical-align: middle;
+// 			}
+// 		}
+// 	}
+// }
 
 //aaaaaaaa
 //aaaaaaaaaa
 
 //theme
-$yellow: #f5d300;
-$black: #292929;
 $bg: #191919;
 $lines: #757474;
-
-body {
-	background-color: $bg;
-}
 
 .text {
 	opacity: 0;
@@ -262,7 +257,7 @@ body {
 			rect {
 				width: 100%;
 				height: 100%;
-				fill: $yellow;
+				fill: $color-primary;
 				stroke: 0;
 				-webkit-clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
 				clip-path: polygon(45vw 40vh, 55vw 40vh, 55vw 60vh, 45vw 60vh);
@@ -321,7 +316,7 @@ body {
 
 @include keyframes(logo) {
 	100% {
-		color: $black;
+		color: $color-black;
 	}
 }
 
@@ -354,7 +349,7 @@ body {
 	50% {
 		-webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 45vw 60vh);
 		clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 45vw 60vh);
-		fill: $yellow;
+		fill: $color-primary;
 	}
 	75% {
 		-webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 55vw 60vh, 0vw 100vh);
@@ -364,6 +359,6 @@ body {
 	100% {
 		-webkit-clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
 		clip-path: polygon(0vw 0vh, 100vw 0vh, 100vw 100vh, 0vw 100vh);
-		fill: $yellow;
+		fill: $color-primary;
 	}
 }
