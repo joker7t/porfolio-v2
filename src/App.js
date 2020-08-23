@@ -39,27 +39,27 @@ function App() {
 
 		tl.to(loaderRef.current, 0.2, { opacity: 1 })
 			.to(
-				CSSRulePlugin.getRule(`.${style.Container}:before`),
+				CSSRulePlugin.getRule(`#appContent:before`),
 				0.2,
 				{ cssRule: { top: '50%' }, ease: Power2.easeOut },
 				'close'
 			)
 			.to(
-				CSSRulePlugin.getRule(`.${style.Container}:after`),
+				CSSRulePlugin.getRule(`#appContent:after`),
 				0.2,
 				{ cssRule: { bottom: '50%' }, ease: Power2.easeOut },
 				'close'
 			)
 
 			.to(
-				CSSRulePlugin.getRule(`.${style.Container}:before`),
+				CSSRulePlugin.getRule(`#appContent:before`),
 				0.2,
 				{ cssRule: { top: '0%' }, ease: Power2.easeOut },
 				'+=1.5',
 				'open'
 			)
 			.to(
-				CSSRulePlugin.getRule(`.${style.Container}:after`),
+				CSSRulePlugin.getRule(`#appContent:after`),
 				0.2,
 				{ cssRule: { bottom: '0%' }, ease: Power2.easeOut },
 				'-=0.2',
@@ -92,7 +92,7 @@ function App() {
 								<div className={style.NavBar}>
 									<NavigationBar transition={transition} />
 								</div>
-								<div className={style.AppContent}>
+								<div className={style.AppContent} id="appContent">
 									<Switch>
 										<Route exact path="/" component={Home} delay={200} />
 										<Route exact path="/about" component={About} />

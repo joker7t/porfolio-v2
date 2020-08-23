@@ -36,26 +36,6 @@ $lines: #757474;
 	@include animation('on .6s ease-in-out 4s forwards');
 
 	-webkit-font-smoothing: antialiased;
-
-	&:before,
-	&:after {
-		content: '';
-		height: 50vh;
-		width: 100%;
-		position: fixed;
-		left: 0;
-		background: #1c2020;
-		z-index: 1;
-	}
-
-	&:before {
-		top: 0;
-		transform: translateY(-100%);
-	}
-	&:after {
-		bottom: 0;
-		transform: translateY(100%);
-	}
 }
 
 .Splash {
@@ -164,6 +144,7 @@ $lines: #757474;
 	}
 
 	.AppContent {
+		position: relative;
 		flex-grow: 1;
 	}
 }

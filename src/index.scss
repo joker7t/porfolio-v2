@@ -59,3 +59,25 @@ a {
 		-webkit-transform: scaleY(1);
 	}
 }
+
+#appContent {
+	&:before,
+	&:after {
+		content: '';
+		height: 50vh;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		background: #1c2020;
+		z-index: 1;
+	}
+
+	&:before {
+		top: 0;
+		transform: translateY(-100%);
+	}
+	&:after {
+		bottom: 0;
+		transform: translateY(100%);
+	}
+}

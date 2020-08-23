@@ -63,14 +63,14 @@ const Intro = () => {
 
 	return (
 		<div style={{ background: 'white' }}>
-			<section class="container1">
+			<section className="container1">
 				<h1>
-					<span class="title">{showLine1()}</span>
-					<span class="title">{showLine2()}</span>
-					<span class="title">{showLine3()}</span>
+					<span className="title">{showLine1()}</span>
+					<span className="title">{showLine2()}</span>
+					<span className="title">{showLine3()}</span>
 				</h1>
 
-				<div class="button">restart</div>
+				<div className="button">restart</div>
 			</section>
 		</div>
 	);

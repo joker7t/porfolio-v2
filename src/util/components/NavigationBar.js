@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
 import DelayLink from '../DelayLink';
 import { TweenMax } from 'gsap';
-import './test.scss';
 
 const NavigationBar = ({ transition }) => {
 	const line1Ref = useRef(null);
@@ -52,16 +51,11 @@ const NavigationBar = ({ transition }) => {
 
 	const showItems = () =>
 		data.map((item, i) => (
-			<li data-text={item.name}>
-				<DelayLink key={i} delay={1700} className={style.Item} to={item.url} onDelayStart={transition}>
-					<div class="home-icon">
-						<div class="roof">
-							<div class="roof-edge"></div>
-						</div>
-						<div class="front"></div>
-					</div>
-				</DelayLink>
-			</li>
+			<DelayLink key={i} delay={1700} className={style.Item} to={item.url} onDelayStart={transition}>
+				<li data-text={item.name}>
+					<div className={style.ItemIcon}></div>
+				</li>
+			</DelayLink>
 		));
 
 	return (
@@ -75,7 +69,7 @@ const NavigationBar = ({ transition }) => {
 					<div className={style.Logo}>TN</div>
 				</div>
 			</div>
-			<nav>
+			<nav className={style.NavigationBarItem}>
 				<ul>{showItems()}</ul>
 			</nav>
 		</div>
