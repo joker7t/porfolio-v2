@@ -39,11 +39,14 @@ const NavigationBar = ({ transition }) => {
 	];
 
 	useEffect(() => {
-		TweenMax.to(line1Ref.current, 1, { left: '100%' });
-		TweenMax.to(line2Ref.current, 1, { top: '100%', delay: 0.25 });
-		TweenMax.to(line3Ref.current, 1, { right: '100%', delay: 0.5 });
-		TweenMax.to(line4Ref.current, 1, { bottom: '100%', delay: 0.75 });
-		setIsPowerActive(true);
+		TweenMax.to(line1Ref.current, 1, { left: '100%', opacity: 1, repeat: -1 });
+		TweenMax.to(line2Ref.current, 1, { top: '100%', delay: 0.25, opacity: 1, repeat: -1 });
+		TweenMax.to(line3Ref.current, 1, { right: '100%', delay: 0.5, opacity: 1, repeat: -1 });
+		TweenMax.to(line4Ref.current, 1, { bottom: '100%', delay: 0.75, opacity: 1, repeat: -1 });
+		setTimeout(() => {
+			setIsPowerActive(true);
+		}, 1000);
+		//eslint-disable-next-line
 	}, []);
 
 	const showItems = () =>

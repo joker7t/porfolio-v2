@@ -2,6 +2,7 @@
 
 .NavigationBar {
 	height: 100%;
+	min-height: 100vh;
 	background-color: #2e2e2e;
 
 	.Container {
@@ -83,29 +84,30 @@
 		background: #2e2e2e;
 	}
 
+	//Power button theme
+	$power-button-background: #1e1e1e;
 	.PowerButton {
 		margin-bottom: 3rem;
-		background: #1e1e1e;
+		background: $power-button-background;
 
 		.Power {
 			position: relative;
 			display: block;
 			padding: 15px 30px;
-			color: #2196f3;
 			text-transform: uppercase;
 			letter-spacing: 3px;
 			text-decoration: none;
 			overflow: hidden;
-			transition: 0.2s;
+			transition: 0.5s all;
 
-			$lines: #757474;
+			$lines: $power-button-background;
 			.Logo {
 				position: relative;
 				z-index: 5;
 				width: 100%;
 				text-align: center;
 				font-size: 26px;
-				color: #fff;
+				color: $power-button-background;
 				&:before {
 					display: block;
 					position: absolute;
@@ -113,6 +115,7 @@
 					width: 20px;
 					height: 1px;
 					background-color: $lines;
+					top: -4px;
 					content: '';
 				}
 				&:after {
@@ -127,9 +130,8 @@
 			}
 
 			&.Active {
-				color: #255784;
-				background: #2196f3;
-				box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+				background: $color-primary;
+				box-shadow: 0 0 10px $color-primary, 0 0 40px $color-primary, 0 0 80px $color-primary;
 				transition-delay: 1s;
 
 				.Logo {
@@ -145,7 +147,7 @@
 					left: -100%;
 					width: 100%;
 					height: 2px;
-					background: linear-gradient(90deg, transparent, #2196f3);
+					background: linear-gradient(90deg, transparent, $color-primary);
 				}
 
 				&:nth-child(2) {
@@ -153,7 +155,7 @@
 					right: 0;
 					width: 2px;
 					height: 100%;
-					background: linear-gradient(180deg, transparent, #2196f3);
+					background: linear-gradient(180deg, transparent, $color-primary);
 				}
 
 				&:nth-child(3) {
@@ -161,7 +163,7 @@
 					right: -100%;
 					width: 100%;
 					height: 2px;
-					background: linear-gradient(270deg, transparent, #2196f3);
+					background: linear-gradient(270deg, transparent, $color-primary);
 				}
 
 				&:nth-child(4) {
@@ -169,7 +171,7 @@
 					left: 0;
 					width: 2px;
 					height: 100%;
-					background: linear-gradient(360deg, transparent, #2196f3);
+					background: linear-gradient(360deg, transparent, $color-primary);
 				}
 			}
 		}
