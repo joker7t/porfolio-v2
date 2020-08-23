@@ -3,7 +3,6 @@ import style from './scss/Home.module.scss';
 import { Row, Col } from 'react-bootstrap';
 import NameCard from './NameCard';
 import Intro from './Intro';
-import Loading from '../loading/Loading';
 
 const Home = () => {
 	return (
