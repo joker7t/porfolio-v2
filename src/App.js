@@ -7,9 +7,15 @@ import Skill from './components/skill/Skill';
 import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
 import NavigationBar from './util/components/NavigationBar';
+import Loading from './util/components/Loading';
+import { TimelineMax, Power2, gsap } from 'gsap';
+import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
+
+gsap.registerPlugin(CSSRulePlugin);
 
 function App() {
 	const cursorRef = useRef(null);
+	const loaderRef = useRef(null);
 
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -28,6 +34,40 @@ function App() {
 		//eslint-disable-next-line
 	}, []);
 
+	const transition = () => {
+		var tl = new TimelineMax();
+
+		tl.to(loaderRef.current, 0.2, { opacity: 1 })
+			.to(
+				CSSRulePlugin.getRule(`.${style.Container}:before`),
+				0.2,
+				{ cssRule: { top: '50%' }, ease: Power2.easeOut },
+				'close'
+			)
+			.to(
+				CSSRulePlugin.getRule(`.${style.Container}:after`),
+				0.2,
+				{ cssRule: { bottom: '50%' }, ease: Power2.easeOut },
+				'close'
+			)
+
+			.to(
+				CSSRulePlugin.getRule(`.${style.Container}:before`),
+				0.2,
+				{ cssRule: { top: '0%' }, ease: Power2.easeOut },
+				'+=1.5',
+				'open'
+			)
+			.to(
+				CSSRulePlugin.getRule(`.${style.Container}:after`),
+				0.2,
+				{ cssRule: { bottom: '0%' }, ease: Power2.easeOut },
+				'-=0.2',
+				'open'
+			)
+			.to(loaderRef.current, 0.2, { opacity: 0 }, '-=0.2');
+	};
+
 	return (
 		<div style={{ cursor: 'none' }}>
 			<div className={style.Splash}>
@@ -43,11 +83,12 @@ function App() {
 					</svg>
 				</div>
 			</div>
-			<div className={`${style.Container} app`}>
+			<div className={style.Container}>
+				<Loading loaderRef={loaderRef} />
 				{isLoading ? null : (
 					<div>
 						<Router>
-							<NavigationBar />
+							<NavigationBar transition={transition} />
 							<Switch>
 								<Route exact path="/" component={Home} delay={200} />
 								<Route exact path="/about" component={About} />

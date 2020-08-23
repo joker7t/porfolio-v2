@@ -1,13 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
 import DelayLink from '../DelayLink';
-import Loading from './Loading';
-import { TimelineMax, Power2, gsap, TweenMax } from 'gsap';
-import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
-gsap.registerPlugin(CSSRulePlugin);
+import { TweenMax } from 'gsap';
 
-const NavigationBar = (props) => {
-	const loaderRef = useRef(null);
+const NavigationBar = ({ transition }) => {
 	const line1Ref = useRef(null);
 	const line2Ref = useRef(null);
 	const line3Ref = useRef(null);
@@ -53,41 +49,14 @@ const NavigationBar = (props) => {
 	const showItems = () =>
 		data.map((item, i) => (
 			<li>
-				<DelayLink key={i} delay={400} className={style.Item} to={item.url} onDelayStart={transition}>
+				<DelayLink key={i} delay={1700} className={style.Item} to={item.url} onDelayStart={transition}>
 					<i class="icon-reorder"></i> {item.name}
 				</DelayLink>
 			</li>
 		));
 
-	const transition = () => {
-		var tl = new TimelineMax();
-
-		tl.to(loaderRef.current, 0.2, { opacity: 1 })
-			.to(CSSRulePlugin.getRule('.app:before'), 0.2, { cssRule: { top: '50%' }, ease: Power2.easeOut }, 'close')
-			.to(CSSRulePlugin.getRule('.app:after'), 0.2, { cssRule: { bottom: '50%' }, ease: Power2.easeOut }, 'close')
-
-			.to(
-				CSSRulePlugin.getRule('.app:before'),
-				0.2,
-				{ cssRule: { top: '0%' }, ease: Power2.easeOut },
-				'+=1.5',
-				'open'
-			)
-			.to(
-				CSSRulePlugin.getRule('.app:after'),
-				0.2,
-				{ cssRule: { bottom: '0%' }, ease: Power2.easeOut },
-				'-=0.2',
-				'open'
-			)
-			.to(loaderRef.current, 0.2, { opacity: 0 }, '-=0.2');
-
-		//eslint-disable-next-line
-	};
-
 	return (
 		<div>
-			<Loading loaderRef={loaderRef} />
 			<div className={style.NavigationBar}>
 				<ul className={style.Container}>
 					<li className={style.PowerButton}>
