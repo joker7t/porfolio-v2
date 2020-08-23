@@ -12,23 +12,18 @@ const Loading = ({ appRef, setIsLoading, setIsLoaded }) => {
 		var tl = new TimelineMax();
 
 		tl.to(loaderRef.current, 0.2, { opacity: 1 })
-			.to(CSSRulePlugin.getRule('body:before'), 0.001, { cssRule: { top: '50%' }, ease: Power2.easeOut }, 'close')
-			.to(
-				CSSRulePlugin.getRule('body:after'),
-				0.001,
-				{ cssRule: { bottom: '50%' }, ease: Power2.easeOut },
-				'close'
-			)
+			.to(CSSRulePlugin.getRule('.app:before'), 0.2, { cssRule: { top: '50%' }, ease: Power2.easeOut }, 'close')
+			.to(CSSRulePlugin.getRule('.app:after'), 0.2, { cssRule: { bottom: '50%' }, ease: Power2.easeOut }, 'close')
 
 			.to(
-				CSSRulePlugin.getRule('body:before'),
+				CSSRulePlugin.getRule('.app:before'),
 				0.2,
 				{ cssRule: { top: '0%' }, ease: Power2.easeOut },
 				'+=1.5',
 				'open'
 			)
 			.to(
-				CSSRulePlugin.getRule('body:after'),
+				CSSRulePlugin.getRule('.app:after'),
 				0.2,
 				{ cssRule: { bottom: '0%' }, ease: Power2.easeOut },
 				'-=0.2',

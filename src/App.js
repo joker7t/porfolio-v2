@@ -43,13 +43,13 @@ function App() {
 					</svg>
 				</div>
 			</div>
-			<div className={style.Container}>
+			<div className={`${style.Container} app`}>
 				{isLoading ? null : (
 					<div>
 						<Router>
 							<NavigationBar />
 							<Switch>
-								<Route exact path="/" component={Home} />
+								<Route exact path="/" component={Home} delay={200} />
 								<Route exact path="/about" component={About} />
 								<Route exact path="/skill" component={Skill} />
 								<Route exact path="/work" component={Work} />
