@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './scss/Contact.module.scss';
-import './test.scss';
 import ContactPicture from './ContactPicture';
 
 const Contact = () => {
