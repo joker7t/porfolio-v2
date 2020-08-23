@@ -56,22 +56,20 @@ const NavigationBar = ({ transition }) => {
 		));
 
 	return (
-		<div>
-			<div className={style.NavigationBar}>
-				<ul className={style.Container}>
-					<li className={style.PowerButton}>
-						<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
-							<span ref={line1Ref}></span>
-							<span ref={line2Ref}></span>
-							<span ref={line3Ref}></span>
-							<span ref={line4Ref}></span>
-							<div className={style.Logo}>TN</div>
-						</div>
-					</li>
-					{showItems()}
-					<li className={style.Black}></li>
-				</ul>
-			</div>
+		<div className={style.NavigationBar}>
+			<ul className={style.Container}>
+				<li className={style.PowerButton}>
+					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
+						<span ref={line1Ref}></span>
+						<span ref={line2Ref}></span>
+						<span ref={line3Ref}></span>
+						<span ref={line4Ref}></span>
+						<div className={style.Logo}>TN</div>
+					</div>
+				</li>
+				{showItems()}
+				<li className={style.Black}></li>
+			</ul>
 		</div>
 	);
 };

@@ -2,12 +2,6 @@
 @import './util/scss/transition';
 @import './util/scss/respond';
 
-.App {
-	cursor: none;
-	width: 100%;
-	min-height: 100vh;
-}
-
 .Cursor {
 	pointer-events: none;
 	cursor: none;
@@ -158,11 +152,19 @@ $lines: #757474;
 			}
 		}
 	}
+}
 
-	.NavigationBar {
+.App {
+	display: flex;
+	height: 100%;
+
+	.NavBar {
+		width: 100px;
+		height: 100%;
 	}
 
-	.App {
+	.AppContent {
+		flex-grow: 1;
 	}
 }
 

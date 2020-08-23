@@ -88,18 +88,20 @@ function App() {
 				{isLoading ? null : (
 					<div>
 						<Router>
-							<div style={style.NavigationBar}>
-								<NavigationBar transition={transition} />
-							</div>
 							<div className={style.App}>
-								<Switch>
-									<Route exact path="/" component={Home} delay={200} />
-									<Route exact path="/about" component={About} />
-									<Route exact path="/skill" component={Skill} />
-									<Route exact path="/work" component={Work} />
-									<Route exact path="/contact" component={Contact} />
-									<Redirect from="*" to="/" />
-								</Switch>
+								<div className={style.NavBar}>
+									<NavigationBar transition={transition} />
+								</div>
+								<div className={style.AppContent}>
+									<Switch>
+										<Route exact path="/" component={Home} delay={200} />
+										<Route exact path="/about" component={About} />
+										<Route exact path="/skill" component={Skill} />
+										<Route exact path="/work" component={Work} />
+										<Route exact path="/contact" component={Contact} />
+										<Redirect from="*" to="/" />
+									</Switch>
+								</div>
 							</div>
 						</Router>
 					</div>
