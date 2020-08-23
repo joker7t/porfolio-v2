@@ -52,9 +52,14 @@ const NavigationBar = ({ transition }) => {
 
 	const showItems = () =>
 		data.map((item, i) => (
-			<li>
+			<li data-text={item.name}>
 				<DelayLink key={i} delay={1700} className={style.Item} to={item.url} onDelayStart={transition}>
-					<i class="icon-reorder"></i> {item.name}
+					<div class="home-icon">
+						<div class="roof">
+							<div class="roof-edge"></div>
+						</div>
+						<div class="front"></div>
+					</div>
 				</DelayLink>
 			</li>
 		));
@@ -71,39 +76,7 @@ const NavigationBar = ({ transition }) => {
 				</div>
 			</div>
 			<nav>
-				<ul>
-					<li>
-						<div class="home-icon">
-							<div class="roof">
-								<div class="roof-edge"></div>
-							</div>
-							<div class="front"></div>
-						</div>
-					</li>
-					<li>
-						<div class="about-icon">
-							<div class="head">
-								<div class="eyes"></div>
-								<div class="beard"></div>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="work-icon">
-							<div class="paper"></div>
-							<div class="lines"></div>
-							<div class="lines"></div>
-							<div class="lines"></div>
-						</div>
-					</li>
-					<li>
-						<div class="mail-icon">
-							<div class="mail-base">
-								<div class="mail-top"></div>
-							</div>
-						</div>
-					</li>
-				</ul>
+				<ul>{showItems()}</ul>
 			</nav>
 		</div>
 	);
