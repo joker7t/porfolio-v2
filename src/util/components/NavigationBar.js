@@ -65,7 +65,7 @@ const NavigationBar = ({ transition }) => {
 							<span ref={line2Ref}></span>
 							<span ref={line3Ref}></span>
 							<span ref={line4Ref}></span>
-							Neon button
+							<div className={style.Logo}>TN</div>
 						</div>
 					</li>
 					{showItems()}
