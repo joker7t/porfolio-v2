@@ -1,3 +1,5 @@
+@import '../../../util/scss/colors';
+
 .NavigationBar {
 	height: 100%;
 	background-color: #2e2e2e;
@@ -87,11 +89,11 @@
 
 		.Power {
 			position: relative;
-			display: inline-block;
+			display: block;
 			padding: 15px 30px;
 			color: #2196f3;
 			text-transform: uppercase;
-			letter-spacing: 4px;
+			letter-spacing: 3px;
 			text-decoration: none;
 			overflow: hidden;
 			transition: 0.2s;
@@ -99,12 +101,11 @@
 			$lines: #757474;
 			.Logo {
 				position: relative;
-				margin: 0 -10px;
 				z-index: 5;
 				width: 100%;
 				text-align: center;
 				font-size: 26px;
-				color: #ffffff;
+				color: #fff;
 				&:before {
 					display: block;
 					position: absolute;
@@ -130,6 +131,9 @@
 				background: #2196f3;
 				box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
 				transition-delay: 1s;
+
+				.Logo {
+				}
 			}
 
 			span {
