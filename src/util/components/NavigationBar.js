@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
 import DelayLink from '../DelayLink';
 import { TweenMax } from 'gsap';
+import './test.scss';
 
 const NavigationBar = ({ transition }) => {
 	const line1Ref = useRef(null);
@@ -60,19 +61,50 @@ const NavigationBar = ({ transition }) => {
 
 	return (
 		<div className={style.NavigationBar}>
-			<ul className={style.Container}>
-				<li className={style.PowerButton}>
-					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
-						<span ref={line1Ref}></span>
-						<span ref={line2Ref}></span>
-						<span ref={line3Ref}></span>
-						<span ref={line4Ref}></span>
-						<div className={style.Logo}>TN</div>
-					</div>
-				</li>
-				{showItems()}
-				<li className={style.Black}></li>
-			</ul>
+			<div className={style.PowerButton}>
+				<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
+					<span ref={line1Ref}></span>
+					<span ref={line2Ref}></span>
+					<span ref={line3Ref}></span>
+					<span ref={line4Ref}></span>
+					<div className={style.Logo}>TN</div>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li>
+						<div class="home-icon">
+							<div class="roof">
+								<div class="roof-edge"></div>
+							</div>
+							<div class="front"></div>
+						</div>
+					</li>
+					<li>
+						<div class="about-icon">
+							<div class="head">
+								<div class="eyes"></div>
+								<div class="beard"></div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="work-icon">
+							<div class="paper"></div>
+							<div class="lines"></div>
+							<div class="lines"></div>
+							<div class="lines"></div>
+						</div>
+					</li>
+					<li>
+						<div class="mail-icon">
+							<div class="mail-base">
+								<div class="mail-top"></div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	);
 };
