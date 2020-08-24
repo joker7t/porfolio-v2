@@ -5,7 +5,7 @@ import './test.scss';
 
 const About = () => {
 	return (
-		<div>
+		<div className={style.AboutContainer}>
 			<div class="big-circles">
 				<div class="big-circle"></div>
 				<div class="big-circle"></div>

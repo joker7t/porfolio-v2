@@ -45,6 +45,10 @@ body {
 a {
 	text-decoration: none;
 	cursor: none;
+
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 @keyframes delay {
@@ -69,7 +73,7 @@ a {
 		position: absolute;
 		left: 0;
 		background: #1c2020;
-		z-index: 1;
+		z-index: 999;
 	}
 
 	&:before {

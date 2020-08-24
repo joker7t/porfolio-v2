@@ -1,20 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import '../../util/scss/transition';
 
 html,
 body {
-	font-family: 'Montserrat', sans-serif;
-	height: 100%;
-	width: 100%;
-	color: white;
 	background-color: #3b1b8b;
-	overflow: hidden;
+	// overflow: hidden;
 }
 
-section {
-	opacity: 1;
-	height: 100%;
-	width: 100%;
-}
+// section {
+// 	opacity: 1;
+// 	height: 100%;
+// 	width: 100%;
+// }
 .active section {
 	opacity: 1;
 	transition: opacity 0.5s;
@@ -43,14 +40,7 @@ section {
 	left: 5%;
 	right: 5%;
 	z-index: 3;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: #fff;
+	@include absCenter();
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -104,7 +94,7 @@ section#nav {
 	width: 100%;
 	height: 100%;
 	top: 0;
-	z-index: 1032;
+	z-index: 32;
 	background-color: #7752d5;
 }
 
@@ -121,24 +111,24 @@ section#nav {
 	background-color: #7752d5;
 	width: 240px;
 	height: 240px;
-	margin-top: -120px;
-	margin-left: -120px;
+	// margin-top: -120px;
+	// margin-left: -120px;
 }
 
 .circle2 {
 	background-color: #8362d9;
 	width: 170px;
 	height: 170px;
-	margin-top: -85px;
-	margin-left: -85px;
+	// margin-top: -85px;
+	// margin-left: -85px;
 }
 
 .circle3 {
 	background-color: #9f88d6;
 	width: 100px;
 	height: 100px;
-	margin-top: -50px;
-	margin-left: -50px;
+	// margin-top: -50px;
+	// margin-left: -50px;
 }
 .spammer-container {
 	display: none;
@@ -233,6 +223,7 @@ section#nav {
 	-webkit-animation: bigcircle 1.6s ease-in-out alternate;
 	-moz-animation: bigcircle 1.6s ease-in-out alternatee;
 	animation: bigcircle 1.6s ease-in-out alternate;
+	z-index: 1;
 }
 
 .big-circle:nth-child(1) {

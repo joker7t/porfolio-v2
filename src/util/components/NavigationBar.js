@@ -12,11 +12,6 @@ const NavigationBar = ({ transition }) => {
 
 	const data = [
 		{
-			name: 'Home',
-			url: '/',
-			icon: {},
-		},
-		{
 			name: 'About',
 			url: '/about',
 			icon: {},
@@ -60,15 +55,18 @@ const NavigationBar = ({ transition }) => {
 
 	return (
 		<div className={style.NavigationBar}>
-			<div className={style.PowerButton}>
-				<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
-					<span ref={line1Ref}></span>
-					<span ref={line2Ref}></span>
-					<span ref={line3Ref}></span>
-					<span ref={line4Ref}></span>
-					<div className={style.Logo}>TN</div>
+			<DelayLink delay={1700} to="/" onDelayStart={transition}>
+				<div className={style.PowerButton}>
+					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
+						<span ref={line1Ref}></span>
+						<span ref={line2Ref}></span>
+						<span ref={line3Ref}></span>
+						<span ref={line4Ref}></span>
+
+						<div className={style.Logo}>TN</div>
+					</div>
 				</div>
-			</div>
+			</DelayLink>
 			<nav className={style.NavigationBarItem}>
 				<ul>{showItems()}</ul>
 			</nav>
