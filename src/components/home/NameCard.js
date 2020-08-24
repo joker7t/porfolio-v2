@@ -5,15 +5,15 @@ const NameCard = () => {
 	const [isAnimate, setIsAnimate] = useState(false);
 
 	useEffect(() => {
-		function animate() {
+		setTimeout(() => {
 			setIsAnimate(true);
-		}
-		animate();
+		}, 1000);
+		//eslint-disable-next-line
 	}, []);
 
 	return (
-		<div>
-			<div className={`${style.NameCard} ${isAnimate ? style.Animate : ''}`} style={{ display: 'inline-block' }}>
+		<div className={style.NameCard}>
+			<div className={`${isAnimate ? style.Animate : ''}`}>
 				<div className={style.Container}>
 					<span className={style.Line1}>I'M</span>
 					<span className={style.LineAdditional}>A</span>
