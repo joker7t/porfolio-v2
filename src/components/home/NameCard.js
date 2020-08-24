@@ -7,7 +7,7 @@ const NameCard = () => {
 	useEffect(() => {
 		setTimeout(() => {
 			setIsAnimate(true);
-		}, 1000);
+		}, 500);
 		//eslint-disable-next-line
 	}, []);
 
