@@ -13,7 +13,7 @@ const NameCard = () => {
 
 	return (
 		<div>
-			<div className={`${isAnimate ? style.Animate : ''}`} style={{ display: 'inline-block' }}>
+			<div className={`${style.NameCard} ${isAnimate ? style.Animate : ''}`} style={{ display: 'inline-block' }}>
 				<div className={style.Container}>
 					<span className={style.Line1}>I'M</span>
 					<span className={style.LineAdditional}>A</span>

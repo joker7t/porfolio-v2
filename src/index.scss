@@ -65,6 +65,7 @@ a {
 }
 
 #appContent {
+	overflow: hidden;
 	&:before,
 	&:after {
 		content: '';

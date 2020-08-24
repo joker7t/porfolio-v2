@@ -1,15 +1,30 @@
 @import url(https://fonts.googleapis.com/css?family=Anton);
 
+.NameCard {
+	position: absolute;
+	right: 3rem;
+	bottom: 3rem;
+}
+
 .Container {
 	font-family: 'Anton', sans-serif;
 	line-height: 1;
 	letter-spacing: -0.07em;
 	color: #fff;
+
+	span {
+		font-family: 'Anton', Helvetica, sans-serif;
+		font-size: 40px;
+		text-transform: uppercase;
+		opacity: 0;
+		color: #fff;
+		filter: alpha(opacity=0);
+	}
 }
 
 .Name {
 	font-family: 'Anton', sans-serif;
-	font-size: 90px;
+	font-size: 5.5rem;
 	line-height: 1;
 	margin-top: -11px;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -26,18 +41,6 @@
 	-webkit-transform: translateX(0);
 	-ms-transform: translateX(0);
 	transform: translateX(0);
-}
-
-span {
-	font-family: 'Anton', Helvetica, sans-serif;
-	font-size: 40px;
-
-	text-transform: uppercase;
-
-	opacity: 0;
-	color: #fff;
-
-	filter: alpha(opacity=0);
 }
 
 .Line3 {
