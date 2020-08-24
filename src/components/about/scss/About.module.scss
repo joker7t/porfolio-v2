@@ -1,58 +1,61 @@
 .AboutContainer {
 	width: 100%;
 	min-height: 100vh;
-	background: white;
+	background: black;
 
-	.Wrapper {
-		text-align: center;
+	// .Wrapper {
+	// 	text-align: center;
 
-		/* Clip text element */
-		.Text {
-			background-image: url(https://picsum.photos/480/200?random);
-			font-size: 6em;
-			font-weight: bold;
-			line-height: 1;
-			position: relative;
-			display: inline-block;
-			margin: 0.25em;
-			padding: 0.5em 0.75em;
-			text-align: center;
-			/* Color fallback */
-			color: #fff;
-			background-clip: text;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			// opacity: 1;
-			// z-index: 10;
+	// 	/* Clip text element */
+	// 	.Text {
+	// 		background-image: url(../../../resources/images/background.JPG);
+	// 		background-size: cover;
+	// 		background-position: 100% 100%;
+	// 		font-size: 6em;
+	// 		font-weight: bold;
+	// 		line-height: 1;
+	// 		position: relative;
+	// 		display: inline-block;
+	// 		margin: 0.25em;
+	// 		padding: 0.5em 0.75em;
+	// 		text-align: center;
+	// 		/* Color fallback */
+	// 		color: #fff;
+	// 		background-clip: text;
+	// 		-webkit-background-clip: text;
+	// 		-webkit-text-fill-color: transparent;
+	// 		// z-index: 10;
 
-			&::before,
-			&::after {
-				position: absolute;
-				content: '';
-			}
+	// 		&::before,
+	// 		&::after {
+	// 			position: absolute;
+	// 			content: '';
+	// 			top: 0;
+	// 			left: 0;
+	// 		}
 
-			/* Background */
-			&::before {
-				z-index: -2;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				left: 0;
-				background-image: inherit;
-				// z-index: 9;
-			}
+	// 		/* Background */
+	// 		&::before {
+	// 			z-index: -2;
+	// 			top: 0;
+	// 			right: 0;
+	// 			bottom: 0;
+	// 			left: 0;
+	// 			background-image: inherit;
+	// 			// z-index: 8;
+	// 		}
 
-			/* Text Background (black zone) */
-			&::after {
-				position: absolute;
-				z-index: -1;
-				top: 0.125em;
-				right: 0.125em;
-				bottom: 0.125em;
-				left: 0.125em;
-				background-color: #000;
-				// z-index: 8;
-			}
-		}
-	}
+	// 		/* Text Background (black zone) */
+	// 		&::after {
+	// 			// position: absolute;
+	// 			z-index: -1;
+	// 			top: 0.125em;
+	// 			right: 0.125em;
+	// 			bottom: 0.125em;
+	// 			left: 0.125em;
+	// 			background-color: #000;
+	// 			// z-index: 9;
+	// 		}
+	// 	}
+	// }
 }
