@@ -1,34 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '../../util/scss/transition';
 
-.active section {
-	opacity: 1;
-	transition: opacity 0.5s;
-}
-.btn-cta {
-	border: 5px solid;
-	border-radius: 0;
-}
-.btn-cta__green {
-	border-color: #76ff03;
-	background-color: transparent;
-	color: #76ff03;
-}
-.btn-cta__gray {
-	border: #ccc;
-	background-color: transparent;
-	color: #ccc;
-}
 .slide-wrapper {
 	position: relative;
 	overflow: hidden;
 	height: 90%;
 	width: 90%;
-	top: 5%;
-	bottom: 5%;
-	left: 5%;
-	right: 5%;
 	z-index: 3;
+	background-color: #623ebd;
 	@include absCenter();
 }
 
@@ -36,49 +15,6 @@
 	display: table;
 	width: 100%;
 	height: 100%;
-	min-height: 100%;
-}
-
-.cover-wrapper__inner {
-	display: table-cell;
-	vertical-align: middle;
-}
-.cover-wrapper__container {
-	margin-right: auto;
-	margin-left: auto;
-}
-
-#home {
-	.slide-wrapper {
-		background-color: #623ebd;
-	}
-}
-
-.circle {
-	border-radius: 190px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	opacity: 0;
-}
-
-.circle1 {
-	background-color: #7752d5;
-	width: 240px;
-	height: 240px;
-}
-
-.circle2 {
-	background-color: #8362d9;
-	width: 170px;
-	height: 170px;
-}
-
-.circle3 {
-	background-color: #9f88d6;
-	width: 100px;
-	height: 100px;
 }
 
 .smallcircles {
@@ -88,6 +24,7 @@
 	height: 100%;
 	animation: infinite-rotation 150s infinite;
 }
+
 .small-circle {
 	position: inherit;
 	display: block;
@@ -143,6 +80,7 @@
 	height: 100%;
 	animation: infinite-rotation 125s infinite;
 }
+
 .big-circle {
 	position: inherit;
 	display: block;
@@ -162,35 +100,17 @@
 	top: 12%;
 	left: 4%;
 }
+
 .big-circle:nth-child(2) {
-	display: block;
-	top: 98%;
-	left: 84%;
-}
-.big-circle:nth-child(3) {
-	display: block;
-	top: 78%;
-	left: 0%;
-}
-.big-circle:nth-child(4) {
-	display: block;
-	top: 78%;
-	left: 56%;
-}
-.big-circle:nth-child(4) {
-	display: block;
-	top: 78%;
-	left: 56%;
-}
-.big-circle:nth-child(5) {
 	display: block;
 	top: 38%;
 	left: 86%;
 }
-.big-circle:nth-child(6) {
+
+.big-circle:nth-child(3) {
 	display: block;
-	top: 86%;
-	left: 96%;
+	top: 78%;
+	left: 0%;
 }
 
 @keyframes smallcircle {

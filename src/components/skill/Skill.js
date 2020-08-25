@@ -10,7 +10,7 @@ const Skill = () => {
 				<div class="big-circle"></div>
 				<div class="big-circle"></div>
 			</div>
-			<section id="home">
+			<section>
 				<div class="slide-wrapper">
 					<div class="smallcircles">
 						<div class="small-circle"></div>
@@ -20,15 +20,11 @@ const Skill = () => {
 						<div class="small-circle"></div>
 						<div class="small-circle"></div>
 					</div>
-					<div class="cover-wrapper text-center" id="home-content">
-						<div class="cover-wrapper__inner">
-							<h1>Toan Nguyen</h1>
-							<p>
-								<button class="btn btn-cta btn-cta__green text-uppercase trigger">
-									View portfolio
-								</button>
-							</p>
-						</div>
+					<div class="cover-wrapper">
+						<h1>Toan Nguyen</h1>
+						<p>
+							<button class="btn">View portfolio</button>
+						</p>
 					</div>
 				</div>
 			</section>
