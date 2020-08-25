@@ -22,43 +22,15 @@ const Skill = () => {
 					</div>
 					<div class="cover-wrapper text-center" id="home-content">
 						<div class="cover-wrapper__inner">
-							<div class="cover-wrapper__container">
-								<h1>Toan Nguyen</h1>
-								<p>
-									<button
-										class="btn btn-cta btn-cta__green text-uppercase trigger"
-										data-toggle="closed"
-									>
-										View portfolio
-									</button>
-								</p>
-							</div>
+							<h1>Toan Nguyen</h1>
+							<p>
+								<button class="btn btn-cta btn-cta__green text-uppercase trigger">
+									View portfolio
+								</button>
+							</p>
 						</div>
 					</div>
 				</div>
-				<section class="portfolio-wrapper" id="portfolio">
-					<div class="cover-wrapper text-center" id="home">
-						<div class="cover-wrapper__inner">
-							<div class="cover-wrapper__container">
-								<div class="container">
-									<div class="row">
-										<div class="col-sm-12">
-											<h1 class="test-uppercase">Portfolio</h1>
-											<p>
-												<button
-													class="btn btn-cta btn-cta__green text-uppercase trigger"
-													data-toggle="opened"
-												>
-													Back home
-												</button>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
 			</section>
 		</div>
 	);

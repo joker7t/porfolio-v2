@@ -84,7 +84,6 @@ function App() {
 				</div>
 			</div>
 			<div className={style.Container}>
-				<Loading loaderRef={loaderRef} />
 				{isLoading ? null : (
 					<div>
 						<Router>
@@ -93,6 +92,7 @@ function App() {
 									<NavigationBar transition={transition} />
 								</div>
 								<div className={style.AppContent} id="appContent">
+									<Loading loaderRef={loaderRef} />
 									<Switch>
 										<Route exact path="/" component={Home} delay={200} />
 										<Route exact path="/about" component={About} />
