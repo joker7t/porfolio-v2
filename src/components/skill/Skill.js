@@ -5,25 +5,25 @@ import './test.scss';
 const Skill = () => {
 	return (
 		<div className={style.SkillContainer}>
-			<div class="big-circles">
-				<div class="big-circle"></div>
-				<div class="big-circle"></div>
-				<div class="big-circle"></div>
+			<div className={style.BigCircles}>
+				<div className={style.BigCircle}></div>
+				<div className={style.BigCircle}></div>
+				<div className={style.BigCircle}></div>
 			</div>
 			<section>
-				<div class="slide-wrapper">
-					<div class="smallcircles">
-						<div class="small-circle"></div>
-						<div class="small-circle"></div>
-						<div class="small-circle"></div>
-						<div class="small-circle"></div>
-						<div class="small-circle"></div>
-						<div class="small-circle"></div>
+				<div className={style.SlideWrapper}>
+					<div className={style.SmallCircles}>
+						<div className={style.SmallCircle}></div>
+						<div className={style.SmallCircle}></div>
+						<div className={style.SmallCircle}></div>
+						<div className={style.SmallCircle}></div>
+						<div className={style.SmallCircle}></div>
+						<div className={style.SmallCircle}></div>
 					</div>
-					<div class="cover-wrapper">
+					<div className={style.CoverWrapper}>
 						<h1>Toan Nguyen</h1>
 						<p>
-							<button class="btn">View portfolio</button>
+							<button className="btn">View portfolio</button>
 						</p>
 					</div>
 				</div>
