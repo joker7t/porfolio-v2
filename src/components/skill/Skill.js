@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './scss/Skill.module.scss';
-import './test.scss';
 import TwoSidesButton from '../../util/components/TwoSidesButton';
 
 const Skill = () => {

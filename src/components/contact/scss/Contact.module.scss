@@ -4,4 +4,56 @@
 	width: 100%;
 	min-height: 100vh;
 	background: $color-black;
+
+	.DecodeText {
+		width: 100%;
+		font-size: 30px;
+		text-align: center;
+	}
+
+	.Space {
+		display: inline-block;
+		width: 10px;
+	}
+
+	.TextAnimation {
+		display: inline-block;
+		position: relative;
+		color: transparent;
+		text-transform: uppercase;
+		margin: 4px;
+		color: $color-black;
+
+		&:before {
+			content: '';
+			color: $color-black;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background: white;
+			width: 0;
+			height: 1.2em;
+			-webkit-transform: translate(-50%, -55%);
+			-ms-transform: translate(-50%, -55%);
+			transform: translate(-50%, -55%);
+		}
+
+		&.State1 {
+			&:before {
+				width: 1px;
+			}
+		}
+
+		&.State2 {
+			&:before {
+				width: 0.9em;
+			}
+		}
+		&.State3 {
+			color: white;
+			&:before {
+				width: 0;
+			}
+		}
+	}
 }
