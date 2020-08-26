@@ -62,11 +62,11 @@ const About = () => {
 			var tilesFitInWindow =
 				Math.ceil(tileContainer.offsetWidth / tileWidth) * Math.ceil(tileContainer.offsetHeight / tileHeight);
 			if (numTiles < tilesFitInWindow) {
-				for (var i = 0, l = tilesFitInWindow - numTiles; i < l; i++) {
+				for (let i = 0, l = tilesFitInWindow - numTiles; i < l; i++) {
 					addTiles();
 				}
 			} else if (numTiles > tilesFitInWindow) {
-				for (var i = 0, l = numTiles - tilesFitInWindow; i < l; i++) {
+				for (let i = 0, l = numTiles - tilesFitInWindow; i < l; i++) {
 					removeTiles();
 				}
 			}
@@ -117,7 +117,7 @@ const About = () => {
 		}
 
 		function positionImage() {
-			for (var t = 0, l = numTiles; t < l; t++) {
+			for (let t = 0, l = numTiles; t < l; t++) {
 				var nowTile = document.querySelectorAll('.tile')[t];
 
 				var left = -nowTile.offsetLeft - (tileHolder.offsetLeft - tileHolder.offsetWidth / 2);
