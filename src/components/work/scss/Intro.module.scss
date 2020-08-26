@@ -1,0 +1,82 @@
+// Change the colors
+$color1: red;
+$color2: blue;
+
+.Text {
+	overflow: hidden;
+	position: relative;
+	// The blend modes mute the colors
+	filter: contrast(110%) brightness(190%);
+}
+
+.Neon {
+	position: relative;
+	// Only works on a black background
+	background: black;
+	color: transparent;
+	font-family: 'Raleway', sans-serif;
+	font-size: 8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	margin: 0;
+
+	&:focus {
+		outline: none;
+		border: 1px dotted white;
+	}
+
+	&::before,
+	&::after {
+		// Add two copies of the text on their own layer
+		content: attr(data-text);
+		color: white;
+		// Blur to create the neon effect with the blend-mode below
+		filter: blur(0.02em);
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		pointer-events: none;
+	}
+
+	// Set the top copy to difference. This creates the knock-out effect with a bit of glow
+	&::after {
+		mix-blend-mode: difference;
+	}
+}
+
+// Position our two effect layers
+.Gradient,
+.Spotlight {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.Gradient {
+	background: linear-gradient(45deg, $color1, $color2);
+	// Multiply mode will paint only the white text
+	mix-blend-mode: multiply;
+}
+
+.Spotlight {
+	animation: light 5s infinite linear;
+	// These are the lights, color-dodge needs a black bg for optimum effect
+	background: radial-gradient(circle, white, transparent 25%) 0 0 / 25% 25%,
+		radial-gradient(circle, white, black 25%) 50% 50% / 12.5% 12.5%;
+	top: -100%;
+	left: -100%;
+	// Color dodge gives the lights that shimmer effect
+	mix-blend-mode: color-dodge;
+}
+
+@keyframes light {
+	100% {
+		transform: translate3d(50%, 50%, 0);
+	}
+}
