@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
 import DelayLink from '../DelayLink';
-import { TweenMax } from 'gsap';
+import { TimelineMax } from 'gsap';
 
 const NavigationBar = ({ transition }) => {
 	const line1Ref = useRef(null);
@@ -34,13 +34,15 @@ const NavigationBar = ({ transition }) => {
 	];
 
 	useEffect(() => {
-		TweenMax.to(line1Ref.current, 1, { left: '100%', opacity: 1, repeat: -1 });
-		TweenMax.to(line2Ref.current, 1, { top: '100%', delay: 0.25, opacity: 1, repeat: -1 });
-		TweenMax.to(line3Ref.current, 1, { right: '100%', delay: 0.5, opacity: 1, repeat: -1 });
-		TweenMax.to(line4Ref.current, 1, { bottom: '100%', delay: 0.75, opacity: 1, repeat: -1 });
+		const tl = new TimelineMax();
+		tl.to(line1Ref.current, 0.5, { left: '100%', opacity: 1, repeat: -1 })
+			.to(line2Ref.current, 0.5, { top: '100%', opacity: 1, repeat: -1 })
+			.to(line3Ref.current, 0.5, { right: '100%', opacity: 1, repeat: -1 })
+			.to(line4Ref.current, 0.5, { bottom: '100%', opacity: 1, repeat: -1 });
 		setTimeout(() => {
+			tl.clear();
 			setIsPowerActive(true);
-		}, 1000);
+		}, 2000);
 		//eslint-disable-next-line
 	}, []);
 

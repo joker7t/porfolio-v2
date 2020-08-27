@@ -69,11 +69,11 @@ button {
 	}
 
 	&:before {
-		top: 0;
+		top: 0%;
 		transform: translateY(-100%);
 	}
 	&:after {
-		bottom: 0;
+		bottom: 0%;
 		transform: translateY(100%);
 	}
 }
