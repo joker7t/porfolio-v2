@@ -35,10 +35,10 @@ const NavigationBar = ({ transition }) => {
 
 	useEffect(() => {
 		const tl = new TimelineMax();
-		tl.to(line1Ref.current, 0.5, { left: '100%', opacity: 1, repeat: -1 })
-			.to(line2Ref.current, 0.5, { top: '100%', opacity: 1, repeat: -1 })
-			.to(line3Ref.current, 0.5, { right: '100%', opacity: 1, repeat: -1 })
-			.to(line4Ref.current, 0.5, { bottom: '100%', opacity: 1, repeat: -1 });
+		tl.to(line1Ref.current, 0.5, { left: '100%', opacity: 1, repeat: -1 }, 0)
+			.to(line2Ref.current, 0.5, { top: '100%', opacity: 1, repeat: -1 }, 0)
+			.to(line3Ref.current, 0.5, { right: '100%', opacity: 1, repeat: -1 }, 0)
+			.to(line4Ref.current, 0.5, { bottom: '100%', opacity: 1, repeat: -1 }, 0);
 		setTimeout(() => {
 			tl.clear();
 			setIsPowerActive(true);
