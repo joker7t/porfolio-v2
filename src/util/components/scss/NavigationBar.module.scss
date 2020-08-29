@@ -165,10 +165,10 @@ $nav-theme: #242424;
 			background: rgba($color-black, 0.6);
 			text-transform: uppercase;
 			transition: all 0.4s ease-out;
+			display: flex;
 			@include respond('tab-port') {
 				height: $tab-port-height;
 				width: $tab-port-height;
-				display: inline-block;
 				margin: 0;
 			}
 
@@ -197,6 +197,22 @@ $nav-theme: #242424;
 			}
 
 			&:hover {
+				transform: translateX(-100%);
+				&::after {
+					opacity: 1;
+					transform: perspective(400px) rotateY(0deg);
+				}
+
+				@include respond('tab-port') {
+					transform: translateY(-100%);
+					&::after {
+						opacity: 1;
+						transform: perspective(400px) rotateX(0deg);
+					}
+				}
+			}
+
+			&.isChosen {
 				transform: translateX(-100%);
 				&::after {
 					opacity: 1;

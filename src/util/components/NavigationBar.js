@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/NavigationBar.module.scss';
 import DelayLink from '../DelayLink';
 import { TimelineMax } from 'gsap';
+import { ReactComponent as AboutIcon } from '../../resources/images/nav-bar/about.svg';
+import { ReactComponent as ContactIcon } from '../../resources/images/nav-bar/contact.svg';
+import { ReactComponent as SkillIcon } from '../../resources/images/nav-bar/skill.svg';
+import { ReactComponent as WorkIcon } from '../../resources/images/nav-bar/work.svg';
 
 const NavigationBar = ({ transition }) => {
 	const line1Ref = useRef(null);
@@ -9,31 +13,20 @@ const NavigationBar = ({ transition }) => {
 	const line3Ref = useRef(null);
 	const line4Ref = useRef(null);
 	const [isPowerActive, setIsPowerActive] = useState(false);
-
-	const data = [
-		{
-			name: 'About',
-			url: '/about',
-			icon: {},
-		},
-		{
-			name: 'Skill',
-			url: '/skill',
-			icon: {},
-		},
-		{
-			name: 'Work',
-			url: '/work',
-			icon: {},
-		},
-		{
-			name: 'Contact',
-			url: '/contact',
-			icon: {},
-		},
-	];
+	const [url, setUrl] = useState('');
 
 	useEffect(() => {
+		const currentUrl = window.location.href;
+		if (currentUrl.indexOf('about') !== -1) {
+			setUrl('about');
+		} else if (currentUrl.indexOf('skill') !== -1) {
+			setUrl('skill');
+		} else if (currentUrl.indexOf('work') !== -1) {
+			setUrl('work');
+		} else if (currentUrl.indexOf('contact') !== -1) {
+			setUrl('contact');
+		}
+
 		const tl = new TimelineMax();
 		tl.to(line1Ref.current, 0.5, { left: '100%', opacity: 1, repeat: -1 }, 0)
 			.to(line2Ref.current, 0.5, { top: '100%', opacity: 1, repeat: -1 }, 0)
@@ -46,14 +39,9 @@ const NavigationBar = ({ transition }) => {
 		//eslint-disable-next-line
 	}, []);
 
-	const showItems = () =>
-		data.map((item, i) => (
-			<DelayLink key={i} delay={1700} className={style.Item} to={item.url} onDelayStart={transition}>
-				<li data-text={item.name}>
-					<div className={style.ItemIcon}></div>
-				</li>
-			</DelayLink>
-		));
+	const handleChoseLink = (urlName) => {
+		setUrl(urlName);
+	};
 
 	return (
 		<div className={style.NavigationBar}>
@@ -70,7 +58,44 @@ const NavigationBar = ({ transition }) => {
 				</div>
 			</DelayLink>
 			<nav className={style.NavigationBarItem}>
-				<ul>{showItems()}</ul>
+				<ul>
+					<DelayLink delay={1700} className={style.Item} to="/about" onDelayStart={transition}>
+						<li
+							data-text="About"
+							className={url === 'about' ? style.isChosen : ''}
+							onClick={() => handleChoseLink('about')}
+						>
+							<AboutIcon />
+						</li>
+					</DelayLink>
+					<DelayLink delay={1700} className={style.Item} to="/skill" onDelayStart={transition}>
+						<li
+							data-text="Skill"
+							className={url === 'skill' ? style.isChosen : ''}
+							onClick={() => handleChoseLink('skill')}
+						>
+							<SkillIcon />
+						</li>
+					</DelayLink>
+					<DelayLink delay={1700} className={style.Item} to="/work" onDelayStart={transition}>
+						<li
+							data-text="Work"
+							className={url === 'work' ? style.isChosen : ''}
+							onClick={() => handleChoseLink('work')}
+						>
+							<WorkIcon />
+						</li>
+					</DelayLink>
+					<DelayLink delay={1700} className={style.Item} to="/contact" onDelayStart={transition}>
+						<li
+							data-text="Contact"
+							className={url === 'contact' ? style.isChosen : ''}
+							onClick={() => handleChoseLink('contact')}
+						>
+							<ContactIcon />
+						</li>
+					</DelayLink>
+				</ul>
 			</nav>
 		</div>
 	);
