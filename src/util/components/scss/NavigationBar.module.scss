@@ -1,6 +1,7 @@
 @import '../../../util/scss/colors';
 @import '../../../util/scss/respond';
 
+$tab-land-width: 3.5rem;
 $tab-port-height: 3.5rem;
 //Power button theme
 $power-button-background: #1e1e1e;
@@ -14,6 +15,10 @@ $nav-theme: #242424;
 	z-index: 950;
 	position: relative;
 
+	@include respond('tab-land') {
+		width: $tab-land-width;
+	}
+
 	@include respond('tab-port') {
 		height: $tab-port-height;
 		width: 100vw;
@@ -24,6 +29,10 @@ $nav-theme: #242424;
 		background: $power-button-background;
 		height: $power-button-height;
 		width: $power-button-height;
+		@include respond('tab-land') {
+			height: $tab-land-width;
+			width: $tab-land-width;
+		}
 		@include respond('tab-port') {
 			height: $tab-port-height;
 			width: $tab-port-height;
@@ -50,6 +59,10 @@ $nav-theme: #242424;
 				font-size: 1.3rem;
 				color: $power-button-background;
 
+				@include respond('tab-land') {
+					font-size: 1rem;
+				}
+
 				@include respond('tab-port') {
 					font-size: 1rem;
 				}
@@ -64,8 +77,14 @@ $nav-theme: #242424;
 					top: -2px;
 					content: '';
 
+					@include respond('tab-land') {
+						top: -3px;
+						width: 0.8rem;
+						left: 1.3rem;
+					}
+
 					@include respond('tab-port') {
-						top: -4px;
+						top: -3px;
 						width: 0.8rem;
 						left: 1.3rem;
 					}
@@ -78,6 +97,11 @@ $nav-theme: #242424;
 					height: 1px;
 					background-color: $lines;
 					content: '';
+
+					@include respond('tab-land') {
+						width: 0.8rem;
+						left: 1.3rem;
+					}
 
 					@include respond('tab-port') {
 						width: 0.8rem;
@@ -136,6 +160,10 @@ $nav-theme: #242424;
 		display: flex;
 		height: calc(100vh - #{$power-button-height});
 		align-items: center;
+
+		@include respond('tab-land') {
+			height: calc(100vh - #{$tab-land-width});
+		}
 
 		@include respond('tab-port') {
 			height: 100%;

@@ -46,7 +46,7 @@ const NavigationBar = ({ transition }) => {
 	return (
 		<div className={style.NavigationBar}>
 			<DelayLink delay={1700} to="/" onDelayStart={transition}>
-				<div className={style.PowerButton}>
+				<div className={style.PowerButton} onClick={() => handleChoseLink('')}>
 					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
 						<span ref={line1Ref}></span>
 						<span ref={line2Ref}></span>
