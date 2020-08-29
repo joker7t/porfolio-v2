@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Anton);
 @import '../../../util/scss/respond';
 
 .NameCard {
@@ -45,7 +44,7 @@
 
 		@include respond('tab-port') {
 			font-size: 3rem;
-			margin-top: -3px;
+			margin-top: -5px;
 		}
 
 		@include respond('phone') {
