@@ -10,23 +10,16 @@ import NavigationBar from './util/components/NavigationBar';
 import Loading from './util/components/Loading';
 import { TimelineMax, Power2, gsap } from 'gsap';
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
+import Mouse from './util/components/Mouse';
 
 gsap.registerPlugin(CSSRulePlugin);
 
 function App() {
-	const cursorRef = useRef(null);
 	const loaderRef = useRef(null);
 
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		const editCursor = (e) => {
-			const { clientX: x, clientY: y } = e;
-			cursorRef.current.style.left = x + 'px';
-			cursorRef.current.style.top = y + 'px';
-		};
-		window.addEventListener('mousemove', editCursor);
-
 		setTimeout(() => {
 			setIsLoading(false);
 		}, 4000);
@@ -107,7 +100,7 @@ function App() {
 					</div>
 				)}
 			</div>
-			<div className={style.Cursor} ref={cursorRef}></div>
+			<Mouse />
 		</div>
 	);
 }

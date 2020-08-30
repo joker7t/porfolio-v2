@@ -2,25 +2,6 @@
 @import './util/scss/transition';
 @import './util/scss/respond';
 
-.Cursor {
-	pointer-events: none;
-	cursor: none;
-	position: fixed;
-	padding: 0.3rem;
-	width: 1rem;
-	height: 1rem;
-	background-color: white;
-	border-radius: 50%;
-	mix-blend-mode: difference;
-	@include translateXY(-50%, -50%);
-	@include transition(transform 0.3s ease);
-	z-index: 2000;
-
-	@media only screen and (hover: none) and (pointer: coarse) {
-		display: none;
-	}
-}
-
 /*
   START LOADING PAGE
 */
