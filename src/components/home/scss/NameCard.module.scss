@@ -5,6 +5,13 @@
 	right: 3rem;
 	bottom: 3rem;
 
+	@include respond('phone') {
+		right: 1.5rem;
+	}
+	@media only screen and (max-width: 400px) {
+		font-size: 1.8rem;
+	}
+
 	.Container {
 		font-family: 'Anton', sans-serif;
 		line-height: 1;
