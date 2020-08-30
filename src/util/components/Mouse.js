@@ -1,7 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/Mouse.module.scss';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const Mouse = () => {
+const Mouse = ({ additionalMouseClasses }) => {
 	const cursorRef = useRef(null);
 	const [cursorClass, setCursorClass] = useState(style.Cursor);
 
@@ -15,9 +17,9 @@ const Mouse = () => {
 		//eslint-disable-next-line
 	}, []);
 
-	const buildMouseClass = (condition = '') => {
+	useEffect(() => {
 		let additionalClasses = '';
-		switch (condition) {
+		switch (additionalMouseClasses) {
 			case 'zoom':
 				additionalClasses = style.MouseZoom;
 				break;
@@ -28,9 +30,17 @@ const Mouse = () => {
 				break;
 		}
 		setCursorClass(`${style.Cursor} ${additionalClasses}`);
-	};
+	}, [additionalMouseClasses]);
 
 	return <div className={cursorClass} ref={cursorRef}></div>;
 };
 
-export default Mouse;
+Mouse.propTypes = {
+	additionalMouseClasses: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	additionalMouseClasses: state.mouse.mouseClasses,
+});
+
+export default connect(mapStateToProps, null)(Mouse);

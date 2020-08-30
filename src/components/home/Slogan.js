@@ -1,15 +1,18 @@
 import React, { useRef, useEffect } from 'react';
 import style from './scss/Slogan.module.scss';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMouseClass } from '../../actions/mouseAction';
 
-const Slogan = () => {
+const Slogan = ({ setMouseClass }) => {
 	const sloganRef = useRef(null);
 
 	useEffect(() => {
 		sloganRef.current.onmouseover = (e) => {
-			// buildMouseClass('zoom');
+			setMouseClass('zoom');
 		};
 		sloganRef.current.onmouseleave = (e) => {
-			// buildMouseClass();
+			setMouseClass();
 		};
 
 		//eslint-disable-next-line
@@ -25,4 +28,8 @@ const Slogan = () => {
 	);
 };
 
-export default Slogan;
+Slogan.propTypes = {
+	setMouseClass: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setMouseClass })(Slogan);
