@@ -1,9 +1,20 @@
+@import '../../../util/scss/respond';
+
 .ProjectContainer {
 	margin-top: 1.5rem;
 	justify-content: center;
 	text-align: center;
+
 	.Project {
 		display: inline-block;
 		width: 33.33333%;
+
+		@include respond('tab-port') {
+			width: 50%;
+		}
+
+		@include respond('phone') {
+			width: 100%;
+		}
 	}
 }

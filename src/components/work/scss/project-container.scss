@@ -22,11 +22,15 @@
 
 		&__text {
 			@include absCenter();
-			font-size: 2rem;
+			font-size: 1.8rem;
 			position: absolute;
 			visibility: visible;
 			letter-spacing: 2px;
 			margin: 0;
+
+			@include respond('tab-land') {
+				font-size: 1.5rem;
+			}
 
 			&::after {
 				content: 'VIEW';
@@ -38,7 +42,7 @@
 				top: 0;
 				left: 0;
 				z-index: 99;
-				@include transition(all 0.4s);
+				@include transition(all 1s);
 			}
 
 			&:hover {
