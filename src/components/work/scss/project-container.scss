@@ -1,7 +1,14 @@
+@import '../../../util/scss/respond';
+@import '../../../util/scss/transition';
+
 #project-container {
 	.splitting {
 		width: 100%;
 		margin-bottom: 2rem;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		background-position: 50% 50%;
 
 		.cell {
 			transition: 1s cubic-bezier(0.55, 0.1, 0.15, 0.95);
@@ -14,19 +21,38 @@
 		}
 
 		&__text {
-			transform: translate(-50%, -50%);
+			@include absCenter();
 			font-size: 2rem;
-			top: 50%;
-			left: 50%;
 			position: absolute;
 			visibility: visible;
+			letter-spacing: 2px;
 			margin: 0;
+
+			&::after {
+				content: 'VIEW';
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 99;
+				@include transition(all 0.4s);
+			}
+
+			&:hover {
+				&::after {
+					@include transform(scaleX(1.4) scaleY(1.6));
+					opacity: 0;
+				}
+			}
 		}
 
 		&--slant-slide {
 			.splitting__text {
 				transform: rotate(-90deg) translate(25%, -50%);
-				left: 0;
+				left: 5%;
 			}
 
 			&:hover {
@@ -38,13 +64,13 @@
 
 		&--slant-slide-2 {
 			.splitting__text {
-				transform: rotate(90deg) translate(25%, -200%);
-				right: 0;
+				transform: rotate(-90deg) translate(25%, -50%);
+				left: 5%;
 			}
 
 			&:hover {
 				.cell {
-					transform: scale(0.8) skew(12deg) translateX(-150%);
+					transform: scale(0.8) skew(12deg) translateX(150%);
 				}
 			}
 		}
@@ -88,6 +114,33 @@
 					&:nth-child(odd) {
 						transform: translateX(300%);
 					}
+				}
+			}
+		}
+
+		&--slide-over-2 {
+			&:hover {
+				.cell {
+					&:nth-child(even) {
+						transform: translateY(-300%);
+					}
+
+					&:nth-child(odd) {
+						transform: translateY(300%);
+					}
+				}
+			}
+		}
+
+		&--rotate {
+			.splitting__text {
+				transform: rotate(-90deg) translate(25%, -50%);
+				left: 5%;
+			}
+
+			&:hover {
+				.cell {
+					transform: rotateZ(90deg);
 				}
 			}
 		}

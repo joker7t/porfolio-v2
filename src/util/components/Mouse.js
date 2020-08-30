@@ -26,6 +26,9 @@ const Mouse = ({ additionalMouseClasses }) => {
 			case 'click':
 				additionalClasses = style.MouseClick;
 				break;
+			case 'preview':
+				additionalClasses = style.MousePreview;
+				break;
 			default:
 				break;
 		}

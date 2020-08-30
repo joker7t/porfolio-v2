@@ -176,6 +176,7 @@ $nav-theme: #242424;
 			text-align: center;
 			list-style-type: none;
 			font-size: 0.8rem;
+			overflow: hidden;
 			@include respond('tab-port') {
 				font-size: 0.6rem;
 				height: 100%;

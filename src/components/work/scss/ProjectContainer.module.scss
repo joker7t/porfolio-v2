@@ -1,4 +1,9 @@
 .ProjectContainer {
+	margin-top: 1.5rem;
+	justify-content: center;
+	text-align: center;
 	.Project {
+		display: inline-block;
+		width: 33.33333%;
 	}
 }

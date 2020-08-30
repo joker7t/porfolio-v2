@@ -20,6 +20,10 @@
 		transform: scale(9);
 	}
 
+	&.MousePreview {
+		transform: scale(4);
+	}
+
 	&.MouseClick {
 		transform: scale(3);
 		&::before {

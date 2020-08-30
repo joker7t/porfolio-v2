@@ -24,49 +24,60 @@ const ProjectContainer = () => {
 
 	return (
 		<div className={style.ProjectContainer} id="project-container">
-			<div style={style.Project}>
-				<h4 className="title">man city</h4>
+			<div className={style.Project}>
 				<div className="splitting--slant-slide" data-columns="5">
-					<a href="#" target="_blank">
-						<div className="splitting__text">View</div>
+					<a href="https://mcfc-joker7nbt.netlify.app/" target="_blank">
+						<div className="splitting__text">VIEW</div>
 					</a>
 					<img src={Manc1} alt="man city" />
 				</div>
 			</div>
-			<div style={style.Project}>
-				<h4 className="title">waves</h4>
+			<div className={style.Project}>
 				<div className="splitting--slant-slide-2" data-columns="5">
 					<a href="#" target="_blank">
-						<div className="splitting__text">View</div>
+						<div className="splitting__text">VIEW</div>
 					</a>
 					<img src={Waves1} alt="waves" />
 				</div>
 			</div>
-			<div style={style.Project}>
-				<h4 className="title">the venue</h4>
+			<div className={style.Project}>
 				<div className="splitting--slant-blinds" data-columns="6">
 					<a href="#" target="_blank">
-						<div className="splitting__text">View</div>
+						<div className="splitting__text">VIEW</div>
 					</a>
 					<img src={Venue1} alt="the venue" />
 				</div>
 			</div>
-			<div style={style.Project}>
-				<h4 className="title">natours</h4>
+			<div className={style.Project}>
 				<div className="splitting--show-border" data-columns="5" data-rows="5">
 					<a href="#" target="_blank">
-						<div className="splitting__text">View</div>
+						<div className="splitting__text">VIEW</div>
 					</a>
 					<img src={Natours1} alt="natours" />
 				</div>
 			</div>
-			<div style={style.Project}>
-				<h4 className="title">trillo</h4>
+			<div className={style.Project}>
 				<div className="splitting--slide-over" data-columns="2" data-rows="5">
 					<a href="#" target="_blank">
-						<div className="splitting__text">View</div>
+						<div className="splitting__text">VIEW</div>
 					</a>
 					<img src={Trillo1} alt="trillo" />
+				</div>
+			</div>
+			<div className={style.Project}>
+				<div className="splitting--slide-over-2" data-columns="5" data-rows="2">
+					<a href="#" target="_blank">
+						<div className="splitting__text">VIEW</div>
+					</a>
+					<img src={Slack1} alt="slack chat" />
+				</div>
+			</div>
+			<div className={style.Project}>
+				<div className="splitting--rotate" data-rows="5">
+					<a href="#" target="_blank">
+						<div className="splitting__text">VIEW</div>
+					</a>
+					<img src={Shopping1} alt="shopping" />
 				</div>
 			</div>
 		</div>
