@@ -34,13 +34,13 @@ function App() {
 			.to(
 				CSSRulePlugin.getRule(`#appContent:before`),
 				0.2,
-				{ cssRule: { top: '50%' }, ease: Power2.easeOut },
+				{ cssRule: { top: '51%' }, ease: Power2.easeOut },
 				'close'
 			)
 			.to(
 				CSSRulePlugin.getRule(`#appContent:after`),
 				0.2,
-				{ cssRule: { bottom: '50%' }, ease: Power2.easeOut },
+				{ cssRule: { bottom: '51%' }, ease: Power2.easeOut },
 				'close'
 			)
 
