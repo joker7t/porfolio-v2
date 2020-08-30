@@ -1,3 +1,5 @@
+@import '../../../util/scss/respond';
+
 // Change the colors
 $color1: red;
 $color2: blue;
@@ -20,6 +22,22 @@ $color2: blue;
 	text-transform: uppercase;
 	text-align: center;
 	margin: 0;
+
+	@include respond('tab-land') {
+		font-size: 4rem;
+	}
+
+	@include respond('tab-port') {
+		font-size: 3.5rem;
+	}
+
+	@include respond('phone') {
+		font-size: 2.5rem;
+	}
+
+	@media only screen and (max-width: 400px) {
+		font-size: 2rem;
+	}
 
 	&:focus {
 		outline: none;
