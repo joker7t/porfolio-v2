@@ -36,7 +36,7 @@ const Mouse = ({ additionalMouseClasses }) => {
 };
 
 Mouse.propTypes = {
-	additionalMouseClasses: PropTypes.object.isRequired,
+	additionalMouseClasses: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
