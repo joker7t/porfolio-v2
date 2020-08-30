@@ -6,8 +6,11 @@ import { ReactComponent as AboutIcon } from '../../resources/images/nav-bar/abou
 import { ReactComponent as ContactIcon } from '../../resources/images/nav-bar/contact.svg';
 import { ReactComponent as SkillIcon } from '../../resources/images/nav-bar/skill.svg';
 import { ReactComponent as WorkIcon } from '../../resources/images/nav-bar/work.svg';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMouseClass } from '../../actions/mouseAction';
 
-const NavigationBar = ({ transition }) => {
+const NavigationBar = ({ transition, setMouseClass }) => {
 	const line1Ref = useRef(null);
 	const line2Ref = useRef(null);
 	const line3Ref = useRef(null);
@@ -40,10 +43,10 @@ const NavigationBar = ({ transition }) => {
 
 		linkRefs.current.forEach((linkRef, i) => {
 			linkRef.onmouseover = (e) => {
-				// buildMouseClass('click');
+				setMouseClass('click');
 			};
 			linkRef.onmouseleave = (e) => {
-				// buildMouseClass();
+				setMouseClass();
 			};
 		});
 
@@ -120,4 +123,8 @@ const NavigationBar = ({ transition }) => {
 	);
 };
 
-export default NavigationBar;
+NavigationBar.propTypes = {
+	setMouseClass: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setMouseClass })(NavigationBar);

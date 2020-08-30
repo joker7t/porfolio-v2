@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
+import store from './store';
+import { Provider } from 'react-redux';
 import style from './App.module.scss';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './components/home/Home';
@@ -62,46 +64,48 @@ function App() {
 	};
 
 	return (
-		<div style={{ cursor: 'none' }}>
-			<div className={style.Splash}>
-				<div className={style.SplashLogo}>TN</div>
-				<div className={style.SplashSvg}>
-					<svg width="100%" height="100%">
-						<rect width="100%" height="100%" />
-					</svg>
-				</div>
-				<div className={style.SplashMinimize}>
-					<svg width="100%" height="100%">
-						<rect width="100%" height="100%" />
-					</svg>
-				</div>
-			</div>
-			<div className={style.Container}>
-				{isLoading ? null : (
-					<div>
-						<Router>
-							<div className={style.App}>
-								<div className={style.NavBar}>
-									<NavigationBar transition={transition} />
-								</div>
-								<div className={style.AppContent} id="appContent">
-									<Loading loaderRef={loaderRef} />
-									<Switch>
-										<Route exact path="/" component={Home} delay={200} />
-										<Route exact path="/about" component={About} />
-										<Route exact path="/skill" component={Skill} />
-										<Route exact path="/work" component={Work} />
-										<Route exact path="/contact" component={Contact} />
-										<Redirect from="*" to="/" />
-									</Switch>
-								</div>
-							</div>
-						</Router>
+		<Provider store={store}>
+			<div style={{ cursor: 'none' }}>
+				<div className={style.Splash}>
+					<div className={style.SplashLogo}>TN</div>
+					<div className={style.SplashSvg}>
+						<svg width="100%" height="100%">
+							<rect width="100%" height="100%" />
+						</svg>
 					</div>
-				)}
+					<div className={style.SplashMinimize}>
+						<svg width="100%" height="100%">
+							<rect width="100%" height="100%" />
+						</svg>
+					</div>
+				</div>
+				<div className={style.Container}>
+					{isLoading ? null : (
+						<div>
+							<Router>
+								<div className={style.App}>
+									<div className={style.NavBar}>
+										<NavigationBar transition={transition} />
+									</div>
+									<div className={style.AppContent} id="appContent">
+										<Loading loaderRef={loaderRef} />
+										<Switch>
+											<Route exact path="/" component={Home} delay={200} />
+											<Route exact path="/about" component={About} />
+											<Route exact path="/skill" component={Skill} />
+											<Route exact path="/work" component={Work} />
+											<Route exact path="/contact" component={Contact} />
+											<Redirect from="*" to="/" />
+										</Switch>
+									</div>
+								</div>
+							</Router>
+						</div>
+					)}
+				</div>
+				<Mouse />
 			</div>
-			<Mouse />
-		</div>
+		</Provider>
 	);
 }
 

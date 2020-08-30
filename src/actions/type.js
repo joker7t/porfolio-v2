@@ -1,0 +1,1 @@
+export const SET_MOUSE_CLASS = 'SET_MOUSE_CLASS';
