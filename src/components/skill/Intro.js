@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './scss/Intro.module.scss';
 import TwoSidesButton from '../../util/components/TwoSidesButton';
+import IdeaContainer from './IdeaContainer';
 
 const Intro = () => {
 	useEffect(() => {
@@ -76,7 +77,7 @@ const Intro = () => {
 					data-rotate='[ "java.", "javascript.", "react.", "node js.", "spring.", "html.", "css.", "docker." ]'
 				></span>
 			</div>
-			<div className={style.SubTitle}>A single &lt;span&gt; is all you need.</div>
+			<IdeaContainer />
 			<TwoSidesButton firstSide="my skill map" secondSide="view" />
 		</div>
 	);
