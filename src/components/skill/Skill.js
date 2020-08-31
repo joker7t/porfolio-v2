@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './scss/Skill.module.scss';
 import Intro from './Intro';
+import TwoSidesButton from '../../util/components/TwoSidesButton';
 
 const Skill = () => {
 	return (
@@ -21,7 +22,10 @@ const Skill = () => {
 						<div className={style.SmallCircle}></div>
 					</div>
 					<div className={style.CoverWrapper}>
-						<Intro />
+						<div>
+							<Intro />
+							<TwoSidesButton firstSide="my skill map" secondSide="view" />
+						</div>
 					</div>
 				</div>
 			</section>

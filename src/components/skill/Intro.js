@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import style from './scss/Intro.module.scss';
-import TwoSidesButton from '../../util/components/TwoSidesButton';
 import IdeaContainer from './IdeaContainer';
 
 const Intro = () => {
@@ -78,7 +77,6 @@ const Intro = () => {
 				></span>
 			</div>
 			<IdeaContainer />
-			<TwoSidesButton firstSide="my skill map" secondSide="view" />
 		</div>
 	);
 };
