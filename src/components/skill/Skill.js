@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import style from './scss/Skill.module.scss';
 import Intro from './Intro';
 import TwoSidesButton from '../../util/components/TwoSidesButton';
@@ -8,12 +8,16 @@ import * as am4core from '@amcharts/amcharts4/core';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_wordCloud from '@amcharts/amcharts4/plugins/wordCloud';
 import data from './skills-data';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMouseClass } from '../../actions/mouseAction';
 
-const Skill = () => {
+const Skill = ({ setMouseClass }) => {
 	const tl = new TimelineMax({ paused: true });
 	const smallCircleRefs = useRef([]);
 	const contentRef = useRef(null);
 	const skillMapContainerRef = useRef(null);
+	const backButtonRef = useRef(null);
 
 	useEffect(() => {
 		tl.to(smallCircleRefs.current, 1, { width: 0, height: 0, ease: Power3.easeOut })
@@ -47,6 +51,20 @@ const Skill = () => {
 			});
 			const hoverState = series.labels.template.states.create('hover');
 			hoverState.properties.fill = am4core.color('#C98D4B');
+
+			backButtonRef.current.onmouseover = (e) => {
+				setMouseClass('click');
+			};
+			backButtonRef.current.onmouseleave = (e) => {
+				setMouseClass();
+			};
+
+			skillMapContainerRef.current.onmouseover = (e) => {
+				setMouseClass('zoom');
+			};
+			skillMapContainerRef.current.onmouseleave = (e) => {
+				setMouseClass();
+			};
 		});
 		//eslint-disable-next-line
 	}, []);
@@ -89,7 +107,9 @@ const Skill = () => {
 						</div>
 						<div className={style.SkillMapWrapper}>
 							<div className={style.SkillMapContainer} ref={skillMapContainerRef} id="skill-chart"></div>
-							<FadeButton content="back" onClick={handleBack} />
+							<div ref={backButtonRef}>
+								<FadeButton content="back" onClick={handleBack} />
+							</div>
 						</div>
 					</div>
 				</div>
@@ -98,4 +118,8 @@ const Skill = () => {
 	);
 };
 
-export default Skill;
+Skill.propTypes = {
+	setMouseClass: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setMouseClass })(Skill);
