@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import style from './scss/Work.module.scss';
 import Intro from './Intro';
 import ProjectContainer from './ProjectContainer';

@@ -1,17 +1,17 @@
+@import '../../scss/colors';
+
 .TwoSidesButton {
 	background: transparent;
 	outline: none;
 	position: relative;
-	border: 2px solid white;
-	padding: 15px 50px;
+	border: 1px solid white;
+	padding: 1rem 1.5rem;
 	overflow: hidden;
 	color: white;
 
 	div {
 		text-transform: uppercase;
 		letter-spacing: 3px;
-		font-weight: 800;
-		font-size: 0.8em;
 		transition: all 0.3s ease-in-out;
 		cursor: none;
 	}
@@ -24,8 +24,6 @@
 		width: 100%;
 		text-transform: uppercase;
 		letter-spacing: 3px;
-		font-weight: 800;
-		font-size: 0.8em;
 		opacity: 0;
 		transform: translate(-100%, 0);
 		transition: all 0.3s ease-in-out;

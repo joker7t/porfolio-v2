@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './scss/Skill.module.scss';
-import TwoSidesButton from '../../util/components/TwoSidesButton';
 import Intro from './Intro';
 
 const Skill = () => {
@@ -23,9 +22,6 @@ const Skill = () => {
 					</div>
 					<div className={style.CoverWrapper}>
 						<Intro />
-						<p>
-							<TwoSidesButton firstSide="hover me" secondSide="click me" />
-						</p>
 					</div>
 				</div>
 			</section>

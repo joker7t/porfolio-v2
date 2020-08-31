@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import './test.scss';
+import style from './scss/Intro.module.scss';
+import TwoSidesButton from '../../util/components/TwoSidesButton';
 
 const Intro = () => {
 	useEffect(() => {
-		var TxtRotate = function (el, toRotate, period) {
+		const TxtRotate = function (el, toRotate, period) {
 			this.toRotate = toRotate;
 			this.el = el;
 			this.loopNum = 0;
@@ -14,8 +15,8 @@ const Intro = () => {
 		};
 
 		TxtRotate.prototype.tick = function () {
-			var i = this.loopNum % this.toRotate.length;
-			var fullTxt = this.toRotate[i];
+			const i = this.loopNum % this.toRotate.length;
+			const fullTxt = this.toRotate[i];
 
 			if (this.isDeleting) {
 				this.txt = fullTxt.substring(0, this.txt.length - 1);
@@ -25,8 +26,8 @@ const Intro = () => {
 
 			this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
-			var that = this;
-			var delta = 300 - Math.random() * 100;
+			const that = this;
+			let delta = 300 - Math.random() * 100;
 
 			if (this.isDeleting) {
 				delta /= 2;
@@ -46,36 +47,37 @@ const Intro = () => {
 			}, delta);
 		};
 
-		window.onload = function () {
-			var elements = document.getElementsByClassName('txt-rotate');
-			for (let i = 0; i < elements.length; i++) {
-				var toRotate = elements[i].getAttribute('data-rotate');
-				var period = elements[i].getAttribute('data-period');
-				if (toRotate) {
-					new TxtRotate(elements[i], JSON.parse(toRotate), period);
-				}
+		const elements = document.getElementsByClassName('txt-rotate');
+		for (let i = 0; i < elements.length; i++) {
+			const toRotate = elements[i].getAttribute('data-rotate');
+			const period = elements[i].getAttribute('data-period');
+			if (toRotate) {
+				new TxtRotate(elements[i], JSON.parse(toRotate), period);
 			}
-			// INJECT CSS
-			var css = document.createElement('style');
-			css.type = 'text/css';
-			css.innerHTML = '.txt-rotate > .wrap { border-right: 0.08em solid #666 }';
-			document.body.appendChild(css);
-		};
+		}
+
+		// INJECT CSS
+		const css = document.createElement('style');
+		css.type = 'text/css';
+		css.innerHTML = '.txt-rotate > .wrap { border-right: 0.08em solid #666 }';
+		document.body.appendChild(css);
 
 		//eslint-disable-next-line
 	}, []);
 
 	return (
-		<div>
-			<h1>
-				This pen is
+		<div className={style.Intro}>
+			<div className={style.Title}>
+				I'm interested in{' '}
 				<span
-					class="txt-rotate"
+					style={{ color: '#fc0' }}
+					className="txt-rotate"
 					data-period="2000"
-					data-rotate='[ "nerdy.", "simple.", "pure JS.", "pretty.", "fun!" ]'
+					data-rotate='[ "java.", "javascript.", "react.", "node js.", "spring.", "html.", "css.", "docker." ]'
 				></span>
-			</h1>
-			<h2>A single &lt;span&gt; is all you need.</h2>
+			</div>
+			<div className={style.SubTitle}>A single &lt;span&gt; is all you need.</div>
+			<TwoSidesButton firstSide="my skill map" secondSide="view" />
 		</div>
 	);
 };
