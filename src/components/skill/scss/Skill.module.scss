@@ -21,8 +21,12 @@ $color-big-circle: #222222;
 		@include absCenter();
 	}
 
+	.ContentWrapper {
+		width: 100%;
+		height: 100%;
+	}
+
 	.CoverWrapper {
-		display: table;
 		width: 100%;
 		height: 100%;
 		display: flex;
@@ -31,6 +35,41 @@ $color-big-circle: #222222;
 
 		div {
 			text-align: center;
+		}
+	}
+
+	.SkillMapWrapper {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: $color-big-circle;
+		padding-bottom: 2rem;
+
+		div {
+			text-align: center;
+		}
+
+		.SkillMapContainer {
+			width: 99%;
+			flex-grow: 1;
+			margin-bottom: 2rem;
+			position: relative;
+			opacity: 0;
+
+			&::before {
+				position: absolute;
+				content: '';
+				display: inline-block;
+				left: 0;
+				bottom: 0;
+				width: 4rem;
+				height: 2rem;
+				background-color: $color-big-circle;
+				z-index: 10;
+			}
 		}
 	}
 

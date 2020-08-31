@@ -1,0 +1,31 @@
+@import '../../scss/colors';
+@import '../../scss/transition';
+@import '../../scss/respond';
+
+.FadeButton {
+	background: transparent;
+	outline: none;
+	position: relative;
+	border: 1px solid white;
+	padding: 1rem 1.5rem;
+	overflow: hidden;
+	color: white;
+	@include transition(0.5s all);
+	background-image: linear-gradient(120deg, transparent 0%, transparent 50%, white 50%);
+	background-size: 230%;
+
+	&:hover {
+		color: #222222;
+		background-position: 100%;
+	}
+
+	@include respond('tab-port') {
+		font-size: 0.8rem;
+	}
+
+	div {
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		cursor: none;
+	}
+}

@@ -1,4 +1,5 @@
 @import '../../scss/colors';
+@import '../../scss/respond';
 
 .TwoSidesButton {
 	background: transparent;
@@ -8,6 +9,10 @@
 	padding: 1rem 1.5rem;
 	overflow: hidden;
 	color: white;
+
+	@include respond('tab-port') {
+		font-size: 0.8rem;
+	}
 
 	div {
 		text-transform: uppercase;
