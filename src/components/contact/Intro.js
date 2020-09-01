@@ -73,12 +73,16 @@ const Intro = () => {
 			}
 			return array;
 		}
+		let textInterval;
 
-		decodeText();
-
-		setInterval(function () {
+		setTimeout(() => {
 			decodeText();
-		}, 10000);
+			textInterval = setInterval(function () {
+				decodeText();
+			}, 8000);
+		}, 3000);
+
+		return () => clearInterval(textInterval);
 
 		//eslint-disable-next-line
 	}, []);
@@ -112,6 +116,7 @@ const Intro = () => {
 			<div className={style.TextAnimation}>h</div>
 			<div className={style.TextAnimation}>e</div>
 			<div className={style.TextAnimation}>r</div>
+			<div className={style.TextAnimation}>!</div>
 		</div>
 	);
 };

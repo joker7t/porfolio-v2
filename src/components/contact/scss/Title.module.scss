@@ -1,0 +1,57 @@
+@import '../../../util//scss/colors';
+@import '../../../util//scss/respond';
+
+.Title {
+	text-align: center;
+	.Text {
+		color: black;
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-width: 2px;
+		-webkit-text-stroke-color: orange;
+		font-size: 6rem;
+		font-family: 'Arvo', serif;
+
+		@include respond('tab-land') {
+			font-size: 4rem;
+			-webkit-text-stroke-width: 1px;
+		}
+
+		@include respond('tab-port') {
+			font-size: 3.5rem;
+		}
+
+		@include respond('phone') {
+			font-size: 2.5rem;
+		}
+	}
+
+	.Email {
+		font-weight: 200;
+		display: block;
+		font-size: 2.5rem;
+		margin-top: -2rem;
+
+		@include respond('tab-land') {
+			font-size: 2rem;
+			-webkit-text-stroke-width: 1px;
+		}
+
+		@include respond('tab-port') {
+			font-size: 1.5rem;
+			margin-top: -1.5rem;
+		}
+
+		@include respond('phone') {
+			margin-top: -0.7rem;
+			font-size: 1rem;
+		}
+
+		span {
+			color: $color-primary;
+			display: inline-block;
+			border-radius: 50%;
+			text-shadow: 0 0 20px orange, 1px 1px 20px orange, 2px 2px 20px orange, -1px -1px 20px orange,
+				-2px -2px 20px orange;
+		}
+	}
+}

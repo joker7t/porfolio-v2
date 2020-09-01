@@ -1,9 +1,15 @@
 @import '../../../util//scss/colors';
+@import '../../../util//scss/respond';
 
 .DecodeText {
 	width: 100%;
-	font-size: 30px;
+	font-size: 1.4rem;
 	text-align: center;
+	margin-top: 1rem;
+
+	@include respond('phone') {
+		font-size: 0.8rem;
+	}
 }
 
 .Space {

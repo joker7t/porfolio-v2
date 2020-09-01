@@ -25,8 +25,25 @@ const Skill = ({ setMouseClass }) => {
 				transform: 'translateY(-100%',
 				ease: Power3.easeOut,
 			})
-			.to(skillMapContainerRef.current, 0.5, { width: '100%', opacity: 1 });
+			.to(skillMapContainerRef.current, 0.5, { opacity: 1 });
 
+		backButtonRef.current.onmouseover = (e) => {
+			setMouseClass('click');
+		};
+		backButtonRef.current.onmouseleave = (e) => {
+			setMouseClass();
+		};
+
+		skillMapContainerRef.current.onmouseover = (e) => {
+			setMouseClass('zoom');
+		};
+		skillMapContainerRef.current.onmouseleave = (e) => {
+			setMouseClass();
+		};
+		//eslint-disable-next-line
+	}, []);
+
+	const handleViewSkillMap = () => {
 		am4core.ready(function () {
 			// Themes begin
 			am4core.useTheme(am4themes_animated);
@@ -51,25 +68,8 @@ const Skill = ({ setMouseClass }) => {
 			});
 			const hoverState = series.labels.template.states.create('hover');
 			hoverState.properties.fill = am4core.color('#C98D4B');
-
-			backButtonRef.current.onmouseover = (e) => {
-				setMouseClass('click');
-			};
-			backButtonRef.current.onmouseleave = (e) => {
-				setMouseClass();
-			};
-
-			skillMapContainerRef.current.onmouseover = (e) => {
-				setMouseClass('zoom');
-			};
-			skillMapContainerRef.current.onmouseleave = (e) => {
-				setMouseClass();
-			};
 		});
-		//eslint-disable-next-line
-	}, []);
 
-	const handleViewSkillMap = () => {
 		tl.play();
 	};
 
