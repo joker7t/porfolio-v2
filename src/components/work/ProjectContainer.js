@@ -2,20 +2,13 @@ import React, { useEffect, useRef } from 'react';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 import Splitting from 'splitting';
-import Manc1 from '../../resources/images/works/man-city/image-1.png';
-import Waves1 from '../../resources/images/works/the-waves/image-1.png';
-import Venue1 from '../../resources/images/works/the-venue/image-1.png';
-import Natours1 from '../../resources/images/works/natours/image-1.png';
-import Trillo1 from '../../resources/images/works/trillo/image-1.png';
-import Slack1 from '../../resources/images/works/slack-chat/image-1.png';
-import Shopping1 from '../../resources/images/works/shopping/image-1.png';
 import './scss/project-container.scss';
 import style from './scss/ProjectContainer.module.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setMouseClass } from '../../actions/mouseAction';
 
-const ProjectContainer = ({ setMouseClass }) => {
+const ProjectContainer = ({ setMouseClass, workImages }) => {
 	const projectRefs = useRef([]);
 	const linkRefs = useRef([]);
 
@@ -57,7 +50,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Manc1} alt="man city" />
+					<img src={workImages.manc} alt="man city" />
 				</div>
 			</div>
 			<div className={style.Project} ref={(el) => (projectRefs.current[1] = el)}>
@@ -67,7 +60,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Waves1} alt="waves" />
+					<img src={workImages.waves} alt="waves" />
 				</div>
 			</div>
 			<div className={style.Project} ref={(el) => (projectRefs.current[2] = el)}>
@@ -77,7 +70,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Venue1} alt="the venue" />
+					<img src={workImages.venue} alt="the venue" />
 				</div>
 			</div>
 			<div className={style.Project} ref={(el) => (projectRefs.current[3] = el)}>
@@ -87,7 +80,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Natours1} alt="natours" />
+					<img src={workImages.natours} alt="natours" />
 				</div>
 			</div>
 			<div className={style.Project} ref={(el) => (projectRefs.current[4] = el)}>
@@ -97,7 +90,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Trillo1} alt="trillo" />
+					<img src={workImages.trillo} alt="trillo" />
 				</div>
 			</div>
 			<div className={style.Project} ref={(el) => (projectRefs.current[5] = el)}>
@@ -107,7 +100,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Slack1} alt="slack chat" />
+					<img src={workImages.slack} alt="slack chat" />
 				</div>
 			</div>
 			<div className={style.Project} ref={(el) => (projectRefs.current[6] = el)}>
@@ -121,7 +114,7 @@ const ProjectContainer = ({ setMouseClass }) => {
 							VIEW
 						</div>
 					</a>
-					<img src={Shopping1} alt="shopping" />
+					<img src={workImages.shopping} alt="shopping" />
 				</div>
 			</div>
 		</div>

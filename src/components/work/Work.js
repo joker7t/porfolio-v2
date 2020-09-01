@@ -3,7 +3,7 @@ import style from './scss/Work.module.scss';
 import Intro from './Intro';
 import ProjectContainer from './ProjectContainer';
 
-const Work = () => {
+const Work = ({ workImages }) => {
 	const workRef = useRef(null);
 	const progressBarRef = useRef(null);
 
@@ -23,7 +23,7 @@ const Work = () => {
 		<div className={style.WorkContainer} ref={workRef}>
 			<div className={style.ProgressBar} ref={progressBarRef}></div>
 			<Intro />
-			<ProjectContainer />
+			<ProjectContainer workImages={workImages} />
 		</div>
 	);
 };

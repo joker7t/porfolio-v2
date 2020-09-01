@@ -13,11 +13,27 @@ import Loading from './util/components/Loading';
 import { TimelineMax, Power2, gsap } from 'gsap';
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
 import Mouse from './util/components/Mouse';
+import Manc1 from './resources/images/works/man-city/image-1.png';
+import Waves1 from './resources/images/works/the-waves/image-1.png';
+import Venue1 from './resources/images/works/the-venue/image-1.png';
+import Natours1 from './resources/images/works/natours/image-1.png';
+import Trillo1 from './resources/images/works/trillo/image-1.png';
+import Slack1 from './resources/images/works/slack-chat/image-1.png';
+import Shopping1 from './resources/images/works/shopping/image-1.png';
 
 gsap.registerPlugin(CSSRulePlugin);
 
 function App() {
 	const loaderRef = useRef(null);
+	const workImages = {
+		manc: Manc1,
+		waves: Waves1,
+		venue: Venue1,
+		natours: Natours1,
+		trillo: Trillo1,
+		slack: Slack1,
+		shopping: Shopping1,
+	};
 
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -93,7 +109,11 @@ function App() {
 											<Route exact path="/" component={Home} delay={200} />
 											<Route exact path="/about" component={About} />
 											<Route exact path="/skill" component={Skill} />
-											<Route exact path="/work" component={Work} />
+											<Route
+												exact
+												path="/work"
+												component={() => <Work workImages={workImages} />}
+											/>
 											<Route exact path="/contact" component={Contact} />
 											<Redirect from="*" to="/" />
 										</Switch>
