@@ -177,8 +177,11 @@ $nav-theme: #242424;
 			list-style-type: none;
 			font-size: 0.8rem;
 			overflow: hidden;
-			@include respond('tab-port') {
+			@include respond('tab-land') {
 				font-size: 0.6rem;
+			}
+
+			@include respond('tab-port') {
 				height: 100%;
 				display: flex;
 				justify-content: center;
