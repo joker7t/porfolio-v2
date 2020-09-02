@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import style from './scss/TextContainer.module.scss';
-import './test.scss';
 import { TweenMax, gsap } from 'gsap';
-import SplitText from './splitting-text.js';
+import SplitText from './SplitText.min.js';
 
 gsap.registerPlugin(SplitText);
 const TextContainer = () => {
@@ -26,7 +25,6 @@ const TextContainer = () => {
 				scale: 0.1,
 				delay: i * 0.02,
 				yoyo: true,
-				repeat: -1,
 				repeatDelay: 10,
 			});
 		});
@@ -34,14 +32,11 @@ const TextContainer = () => {
 
 	return (
 		<div className={style.TextContainer}>
-			<div className="box">
-				<p className="split" ref={textRef}>
-					Animation is the process of creating the illusion of motion and shape change by means of the rapid
-					display of a sequence of static images that minimally differ from each other. The illusion—as in
-					motion pictures in general—is thought to rely on the phi phenomenon. Animators are artists who
-					specialize in the creation of animation.
-				</p>
-			</div>
+			<p ref={textRef}>
+				I’m Toan Nguyen - a Web developer in Axon Active Vietnam. <br />
+					I have over 3 years of developing web applications. I am working as a Full-stack developer for projects about fintech and e-commerce. My experience includes MySql, Postgres, MongoDB, Java, JSF, Spring, Javascript, React, Nginx. I also have experience in testing.<br />
+					Besides that, I am familiar with Kanban & Scrum process. More important, I’m confident, hard-working and interested in learning new things.
+			</p>
 		</div>
 	);
 };
