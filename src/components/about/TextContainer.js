@@ -23,9 +23,8 @@ const TextContainer = () => {
 				y: random(-500, 500),
 				z: random(-500, 500),
 				scale: 0.1,
-				delay: i * 0.02,
-				yoyo: true,
-				repeatDelay: 10,
+				delay: i * 0.015,
+				yoyo: true
 			});
 		});
 	}, []);

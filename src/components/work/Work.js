@@ -8,14 +8,14 @@ const Work = ({ workImages }) => {
 	const progressBarRef = useRef(null);
 
 	useEffect(() => {
-		// workRef.current.onscroll = () => {
-		// 	const scroll = workRef.current.scrollTop;
-		// 	const dh = workRef.current.scrollHeight;
-		// 	const wh = window.innerHeight;
-		// 	//maximum is 85% because of header
-		// 	const scrollPercent = (scroll / (dh - wh)) * 90;
-		// 	progressBarRef.current.style.height = `${scrollPercent}%`;
-		// };
+		workRef.current.onscroll = () => {
+			const scroll = workRef.current.scrollTop;
+			const dh = workRef.current.scrollHeight;
+			const wh = window.innerHeight;
+			//maximum is 85% because of header
+			const scrollPercent = (scroll / (dh - wh)) * 90;
+			progressBarRef.current.style.height = `${scrollPercent}%`;
+		};
 		//eslint-disable-next-line
 	}, []);
 
