@@ -17,22 +17,14 @@ const Skill = ({ setMouseClass }) => {
 	const smallCircleRefs = useRef([]);
 	const contentRef = useRef(null);
 	const skillMapContainerRef = useRef(null);
-	const backButtonRef = useRef(null);
 
 	useEffect(() => {
-		tl.to(smallCircleRefs.current, 1, { width: 0, height: 0, ease: Power3.easeOut })
+		tl.to(smallCircleRefs.current, 1, { transform: 'scale(0)', ease: Power3.easeOut })
 			.to(contentRef.current, 1, {
-				transform: 'translateY(-100%',
+				transform: 'translateY(-100%)',
 				ease: Power3.easeOut,
 			})
 			.to(skillMapContainerRef.current, 0.5, { opacity: 1 });
-
-		backButtonRef.current.onmouseover = (e) => {
-			setMouseClass('click');
-		};
-		backButtonRef.current.onmouseleave = (e) => {
-			setMouseClass();
-		};
 
 		skillMapContainerRef.current.onmouseover = (e) => {
 			setMouseClass('zoom');
@@ -97,7 +89,7 @@ const Skill = ({ setMouseClass }) => {
 					<div className={style.ContentWrapper} ref={contentRef}>
 						<div className={style.CoverWrapper}>
 							<div>
-								<Intro />
+								<Intro setMouseClass={setMouseClass} />
 								<TwoSidesButton
 									firstSide="my skill map"
 									secondSide="view"
@@ -107,9 +99,7 @@ const Skill = ({ setMouseClass }) => {
 						</div>
 						<div className={style.SkillMapWrapper}>
 							<div className={style.SkillMapContainer} ref={skillMapContainerRef} id="skill-chart"></div>
-							<div ref={backButtonRef}>
-								<FadeButton content="back" onClick={handleBack} />
-							</div>
+							<FadeButton content="back" onClick={handleBack} />
 						</div>
 					</div>
 				</div>

@@ -5,9 +5,6 @@ import { ReactComponent as Design } from '../../resources/images/skill/data.svg'
 import { ReactComponent as PowerDeisgn } from '../../resources/images/skill/startup.svg';
 import { Row, Col } from 'react-bootstrap';
 import style from './scss/IdeaContainer.module.scss';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { setMouseClass } from '../../actions/mouseAction';
 
 const IdeaContainer = ({ setMouseClass }) => {
 	const ideaRefs = useRef([]);
@@ -49,8 +46,4 @@ const IdeaContainer = ({ setMouseClass }) => {
 	);
 };
 
-IdeaContainer.propTypes = {
-	setMouseClass: PropTypes.func.isRequired,
-};
-
-export default connect(null, { setMouseClass })(IdeaContainer);
+export default IdeaContainer;

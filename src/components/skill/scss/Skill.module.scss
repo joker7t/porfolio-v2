@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import '../../../util/scss/transition';
+@import '../../../util/scss/respond';
 
 $color-background: #141414;
 $color-wrapper: #000;
@@ -48,6 +48,7 @@ $color-big-circle: #222222;
 		justify-content: center;
 		background: $color-wrapper;
 		padding-bottom: 2rem;
+		cursor: none;
 
 		div {
 			text-align: center;
@@ -95,6 +96,16 @@ $color-big-circle: #222222;
 		-moz-animation: smallcircle 0.8s ease-in-out alternate;
 		animation: smallcircle 0.8s ease-in-out alternate;
 
+		@include respond('desktop') {
+			width: 175px;
+			height: 175px;
+		}
+
+		@include respond('phone') {
+			width: 125px;
+			height: 125px;
+		}
+
 		&:nth-child(1) {
 			top: 12%;
 			left: 24%;
@@ -136,8 +147,8 @@ $color-big-circle: #222222;
 	.BigCircle {
 		position: inherit;
 		display: block;
-		width: 500px;
-		height: 500px;
+		width: 450px;
+		height: 450px;
 		background: $color-big-circle;
 		margin-top: -250px;
 		margin-left: -250px;
@@ -146,6 +157,16 @@ $color-big-circle: #222222;
 		-moz-animation: bigcircle 1.6s ease-in-out alternatee;
 		animation: bigcircle 1.6s ease-in-out alternate;
 		z-index: 1;
+
+		@include respond('desktop') {
+			width: 400px;
+			height: 400px;
+		}
+
+		@include respond('phone') {
+			width: 300px;
+			height: 300px;
+		}
 
 		&:nth-child(1) {
 			top: 12%;

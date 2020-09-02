@@ -14,6 +14,7 @@
 	.PictureContainer {
 		perspective: 2rem;
 		display: inline-block;
+		cursor: none;
 
 		.PictureInner {
 			@include transition(transform 0.5s);
@@ -22,8 +23,18 @@
 				position: relative;
 				overflow: hidden;
 				margin: 0;
-				width: 300px;
+				width: 400px;
 				filter: grayscale(0.8);
+
+				@include respond('tab-land') {
+					width: 50%;
+					margin: auto;
+				}
+
+				@include respond('phone') {
+					width: 75%;
+					margin: auto;
+				}
 
 				img {
 					width: 100%;

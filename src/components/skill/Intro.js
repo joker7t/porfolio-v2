@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import style from './scss/Intro.module.scss';
 import IdeaContainer from './IdeaContainer';
 
-const Intro = () => {
+const Intro = ({ setMouseClass }) => {
+	const introRef = useRef(null);
+
 	useEffect(() => {
 		const TxtRotate = function (el, toRotate, period) {
 			this.toRotate = toRotate;
@@ -52,12 +54,20 @@ const Intro = () => {
 		css.type = 'text/css';
 		css.innerHTML = '.txt-rotate > .wrap { border-right: 0.08em solid #666 }';
 		document.body.appendChild(css);
+
+		introRef.current.onmouseover = (e) => {
+			setMouseClass('zoom');
+		};
+		introRef.current.onmouseleave = (e) => {
+			setMouseClass();
+		};
+
 		//eslint-disable-next-line
 	}, []);
 
 	return (
-		<div className={style.Intro}>
-			<div className={style.Title}>
+		<div className={style.Intro} >
+			<div className={style.Title} ref={introRef}>
 				I'm interested in{' '}
 				<span
 					style={{ color: '#fc0' }}
@@ -66,7 +76,7 @@ const Intro = () => {
 					data-rotate='[ "java.", "javascript.", "react.", "node js.", "spring.", "html.", "css.", "docker." ]'
 				></span>
 			</div>
-			<IdeaContainer />
+			<IdeaContainer setMouseClass={setMouseClass} />
 		</div>
 	);
 };

@@ -17,6 +17,14 @@
 	width: 10px;
 }
 
+.Break {
+	display: none;
+
+	@include respond('phone') {
+		display: block;
+	}
+}
+
 .TextAnimation {
 	display: inline-block;
 	position: relative;

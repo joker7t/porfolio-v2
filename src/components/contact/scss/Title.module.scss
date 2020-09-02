@@ -53,9 +53,14 @@
 			text-shadow: 0 0 20px orange, 1px 1px 20px orange, 2px 2px 20px orange, -1px -1px 20px orange,
 				-2px -2px 20px orange;
 
-			@include respond('tab-port') {
-				text-shadow: 0 0 10px orange, 1px 1px 10px orange, 2px 2px 10px orange, -1px -1px 10px orange,
-					-2px -2px 10px orange;
+			@include respond('tab-land') {
+				text-shadow: 0 0 5px orange, 1px 1px 5px orange, 1px 1px 5px orange, -1px -1px 5px orange,
+					-1px -1px 5px orange;
+			}
+
+			@include respond('phone') {
+				text-shadow: 0 0 2px orange, 1px 1px 2px orange, 1px 1px 2px orange, -1px -1px 2px orange,
+					-1px -1px 2px orange;
 			}
 		}
 	}

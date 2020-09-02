@@ -3,13 +3,23 @@ import style from './scss/AboutContainer.module.scss';
 import mouseAnimate from '../../util/function/mouseAnimate';
 import Avatar from '../../resources/images/avatar2.JPG';
 import TextContainer from './TextContainer';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMouseClass } from '../../actions/mouseAction';
 
-const AboutContainer = () => {
+const AboutContainer = ({ setMouseClass }) => {
 	const container = useRef(null);
 	const inner = useRef(null);
 
 	useEffect(() => {
 		mouseAnimate(container.current, inner.current);
+
+		container.current.onmouseover = (e) => {
+			setMouseClass('default');
+		};
+		container.current.onmouseleave = (e) => {
+			setMouseClass();
+		};
 	}, []);
 
 	return (
@@ -28,4 +38,8 @@ const AboutContainer = () => {
 	);
 };
 
-export default AboutContainer;
+AboutContainer.propTypes = {
+	setMouseClass: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setMouseClass })(AboutContainer);

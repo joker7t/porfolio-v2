@@ -108,6 +108,7 @@ const Intro = () => {
 			<div className={style.TextAnimation}>n</div>
 			<div className={style.TextAnimation}>g</div>
 			<div className={style.Space}></div>
+			<div className={style.Break}></div>
 			<div className={style.TextAnimation}>t</div>
 			<div className={style.TextAnimation}>o</div>
 			<div className={style.TextAnimation}>g</div>

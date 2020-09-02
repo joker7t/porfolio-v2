@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './scss/Intro.module.scss';
 
-export default function Intro() {
+const Intro = () => {
 	return (
 		<div className={style.Text}>
 			<h1 className={style.Neon} data-text="my work">
@@ -11,4 +11,6 @@ export default function Intro() {
 			<div className={style.Spotlight}></div>
 		</div>
 	);
-}
+};
+
+export default Intro;
