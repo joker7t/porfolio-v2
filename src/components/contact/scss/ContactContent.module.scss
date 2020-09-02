@@ -1,0 +1,39 @@
+@import '../../../util//scss/respond';
+
+.ContactContent {
+	display: flex;
+	padding: 2rem 1rem;
+
+	.ContactForm {
+		width: 45%;
+		padding: 1rem;
+
+		@include respond('tab-port') {
+			width: 100%;
+			padding: 2rem 1rem;
+		}
+
+		.NotifyMessage {
+			color: #55eb34;
+			margin-top: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 0.5rem;
+		}
+
+		.ErrorMessage {
+			color: #eb5534;
+			margin-top: 1rem;
+			text-transform: uppercase;
+			letter-spacing: 0.5rem;
+		}
+	}
+
+	.ContactMap {
+		width: 55%;
+		padding: 1rem;
+
+		@include respond('tab-port') {
+			display: none;
+		}
+	}
+}

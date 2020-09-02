@@ -2,19 +2,16 @@ import React, { useEffect } from 'react';
 import style from './scss/Contact.module.scss';
 import Intro from './Intro';
 import Title from './Title';
-// import ContactPicture from './ContactPicture';
-// <ContactPicture />
+import ContactContent from './ContactContent';
 
 const Contact = () => {
-
-
-	useEffect(() => {
-	}, []);
+	useEffect(() => {}, []);
 
 	return (
 		<div className={style.ContactContainer}>
 			<Title />
 			<Intro />
+			<ContactContent />
 		</div>
 	);
 };
