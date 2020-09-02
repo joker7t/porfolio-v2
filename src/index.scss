@@ -20,6 +20,11 @@
 	src: local('Cosi Azure'), url(./resources/fonts/Cosi-Azure/Cosi-Azure-Bold.otf) format('opentype');
 }
 
+@font-face {
+	font-family: 'Liberty';
+	src: local('Liberty'), url(./resources/fonts/liberty.otf) format('opentype');
+}
+
 // import Boostrap and custom it
 // change the theme
 $theme-colors: (
@@ -53,6 +58,10 @@ a {
 
 button {
 	cursor: none !important;
+
+	&:focus {
+		outline: none;
+	}
 }
 
 #appContent {

@@ -45,7 +45,7 @@ $color-big-circle: #222222;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		background: $color-big-circle;
+		background: $color-wrapper;
 		padding-bottom: 2rem;
 
 		div {
@@ -67,7 +67,7 @@ $color-big-circle: #222222;
 				bottom: 0;
 				width: 4rem;
 				height: 2rem;
-				background-color: $color-big-circle;
+				background-color: $color-wrapper;
 				z-index: 10;
 			}
 		}

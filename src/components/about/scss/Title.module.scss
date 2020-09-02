@@ -1,0 +1,130 @@
+@import '../../../util/scss/colors';
+@import '../../../util/scss/transition';
+@import '../../../util/scss/respond';
+
+.Title {
+	font-family: 'Liberty';
+	font-weight: 100;
+	font-size: 6rem;
+	letter-spacing: -0.5rem;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-flow: row;
+
+	@include respond('tab-land') {
+		font-size: 4rem;
+	}
+
+	@include respond('tab-port') {
+		font-size: 3.5rem;
+	}
+
+	@include respond('phone') {
+		font-size: 2.5rem;
+	}
+
+	.Letter {
+		color: $color-primary;
+		text-shadow: 0 0 2rem $color-primary;
+		display: inline-block;
+
+		&Special {
+			@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+			@include animation(flicker 2s ease-in-out infinite alternate);
+
+			@include respond('tab-port') {
+				@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+				@include animation(flicker-small 2s ease-in-out infinite alternate);
+			}
+
+			@include respond('phone') {
+			}
+		}
+	}
+
+	.Space {
+		margin: 1rem;
+
+		@include respond('tab-port') {
+			margin: 0.5rem;
+		}
+	}
+}
+
+@include keyframes(flicker) {
+	0% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	5% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	5.5% {
+		opacity: 0;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	6% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	6.5% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	7% {
+		opacity: 0;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	8% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+	50% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(13deg));
+	}
+	100% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 1rem) rotate(10deg));
+	}
+}
+
+@include keyframes(flicker-small) {
+	0% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	5% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	5.5% {
+		opacity: 0;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	6% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	6.5% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	7% {
+		opacity: 0;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	8% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+	50% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(13deg));
+	}
+	100% {
+		opacity: 1;
+		@include transform(translate(-0.2rem, 0.5rem) rotate(10deg));
+	}
+}
