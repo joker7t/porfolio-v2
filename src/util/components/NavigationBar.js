@@ -15,6 +15,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 	const line2Ref = useRef(null);
 	const line3Ref = useRef(null);
 	const line4Ref = useRef(null);
+	const powerButtonRef = useRef(null);
 	const linkRefs = useRef([]);
 	const [isPowerActive, setIsPowerActive] = useState(false);
 	const [url, setUrl] = useState('');
@@ -41,9 +42,16 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 			setIsPowerActive(true);
 		}, 2000);
 
+		powerButtonRef.current.onmouseover = (e) => {
+			setMouseClass('home');
+		};
+		powerButtonRef.current.onmouseleave = (e) => {
+			setMouseClass();
+		};
+
 		linkRefs.current.forEach((linkRef, i) => {
 			linkRef.onmouseover = (e) => {
-				setMouseClass('click');
+				setMouseClass('default');
 			};
 			linkRef.onmouseleave = (e) => {
 				setMouseClass();
@@ -63,7 +71,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 				<div
 					className={style.PowerButton}
 					onClick={() => handleChoseLink('')}
-					ref={(el) => (linkRefs.current[0] = el)}
+					ref={powerButtonRef}
 				>
 					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
 						<span ref={line1Ref}></span>
@@ -82,7 +90,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 							data-text="About"
 							className={url === 'about' ? style.isChosen : ''}
 							onClick={() => handleChoseLink('about')}
-							ref={(el) => (linkRefs.current[1] = el)}
+							ref={(el) => (linkRefs.current[0] = el)}
 						>
 							<AboutIcon />
 						</li>
@@ -92,7 +100,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 							data-text="Skill"
 							className={url === 'skill' ? style.isChosen : ''}
 							onClick={() => handleChoseLink('skill')}
-							ref={(el) => (linkRefs.current[2] = el)}
+							ref={(el) => (linkRefs.current[1] = el)}
 						>
 							<SkillIcon />
 						</li>
@@ -102,7 +110,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 							data-text="Work"
 							className={url === 'work' ? style.isChosen : ''}
 							onClick={() => handleChoseLink('work')}
-							ref={(el) => (linkRefs.current[3] = el)}
+							ref={(el) => (linkRefs.current[2] = el)}
 						>
 							<WorkIcon />
 						</li>
@@ -112,7 +120,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 							data-text="Contact"
 							className={url === 'contact' ? style.isChosen : ''}
 							onClick={() => handleChoseLink('contact')}
-							ref={(el) => (linkRefs.current[4] = el)}
+							ref={(el) => (linkRefs.current[3] = el)}
 						>
 							<ContactIcon />
 						</li>

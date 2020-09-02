@@ -3,6 +3,7 @@
 @import '../../../util/scss/transition';
 
 .Cursor {
+	opacity: 1;
 	pointer-events: none;
 	cursor: none;
 	position: fixed;
@@ -13,8 +14,12 @@
 	border-radius: 50%;
 	mix-blend-mode: difference;
 	@include translateXY(-50%, -50%);
-	@include transition(transform 0.3s ease);
+	@include transition(transform 0.3s ease, opacity 0.3s ease);
 	z-index: 2000;
+
+	&.Disabled{
+		@include transform(scale(0));
+	}
 
 	&.MouseZoom {
 		transform: scale(9);
@@ -37,6 +42,38 @@
 			display: flex;
 			top: 6px;
 			left: 2px;
+		}
+	}
+
+	&.MouseHome {
+		transform: scale(3);
+		&::before {
+			z-index: 2001;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			content: 'HOME';
+			font-size: 3px;
+			letter-spacing: 1px;
+			display: flex;
+			top: 6px;
+			left: 2px;
+		}
+	}
+
+	&.MouseWelcome {
+		transform: scale(6);
+		&::before {
+			z-index: 2001;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			content: 'HELLO';
+			font-size: 2px;
+			letter-spacing: 1px;
+			display: flex;
+			top: 7px;
+			left: 3px;
 		}
 	}
 

@@ -81,7 +81,7 @@ function App() {
 
 	return (
 		<Provider store={store}>
-			<div style={{ cursor: 'none' }}>
+			<div>
 				<div className={style.Splash}>
 					<div className={style.SplashLogo}>TN</div>
 					<div className={style.SplashSvg}>

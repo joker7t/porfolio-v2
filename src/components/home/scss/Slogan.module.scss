@@ -5,6 +5,7 @@
 .Wrapper {
 	display: inline-block;
 	@include absCenter();
+	cursor: none;
 
 	h1 {
 		color: white;

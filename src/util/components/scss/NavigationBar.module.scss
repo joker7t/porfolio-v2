@@ -26,6 +26,7 @@ $nav-theme: #242424;
 	}
 
 	.PowerButton {
+		cursor: none;
 		background: $power-button-background;
 		height: $power-button-height;
 		width: $power-button-height;
@@ -197,6 +198,7 @@ $nav-theme: #242424;
 			text-transform: uppercase;
 			transition: all 0.4s ease-out;
 			display: flex;
+			cursor: none;
 			@include respond('tab-port') {
 				height: $tab-port-height;
 				width: $tab-port-height;

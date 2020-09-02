@@ -18,7 +18,7 @@ const Mouse = ({ additionalMouseClasses }) => {
 	}, []);
 
 	useEffect(() => {
-		let additionalClasses = '';
+		let additionalClasses = null;
 		switch (additionalMouseClasses) {
 			case 'zoom':
 				additionalClasses = style.MouseZoom;
@@ -29,10 +29,19 @@ const Mouse = ({ additionalMouseClasses }) => {
 			case 'preview':
 				additionalClasses = style.MousePreview;
 				break;
+			case 'home':
+				additionalClasses = style.MouseHome;
+				break;
+			case 'welcome':
+				additionalClasses = style.MouseWelcome;
+				break;
+			case 'default':
+				additionalClasses = '';
+				break;
 			default:
 				break;
 		}
-		setCursorClass(`${style.Cursor} ${additionalClasses}`);
+		setCursorClass(additionalClasses === null ? `${style.Cursor} ${style.Disabled}` : `${style.Cursor} ${additionalClasses}`);
 	}, [additionalMouseClasses]);
 
 	return <div className={cursorClass} ref={cursorRef}></div>;

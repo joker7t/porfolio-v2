@@ -1,18 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { setMouseClass } from '../../actions/mouseAction';
 import style from './scss/NameCard.module.scss';
 
-const NameCard = () => {
+const NameCard = ({ setMouseClass }) => {
+	const nameCardRef = useRef(null);
 	const [isAnimate, setIsAnimate] = useState(false);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setIsAnimate(true);
 		}, 500);
+
+		nameCardRef.current.onmouseover = (e) => {
+			setMouseClass('welcome');
+		};
+		nameCardRef.current.onmouseleave = (e) => {
+			setMouseClass();
+		};
 		//eslint-disable-next-line
 	}, []);
 
 	return (
-		<div className={style.NameCard}>
+		<div className={style.NameCard} ref={nameCardRef}>
 			<div className={`${isAnimate ? style.Animate : ''}`}>
 				<div className={style.Container}>
 					<span className={style.Line1}>I'M</span>
@@ -26,4 +37,8 @@ const NameCard = () => {
 	);
 };
 
-export default NameCard;
+NameCard.propTypes = {
+	setMouseClass: PropTypes.func.isRequired,
+};
+
+export default connect(null, { setMouseClass })(NameCard);
