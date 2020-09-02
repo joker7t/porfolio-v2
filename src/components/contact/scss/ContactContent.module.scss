@@ -1,4 +1,5 @@
 @import '../../../util//scss/respond';
+@import '../../../util//scss/colors';
 
 .ContactContent {
 	display: flex;
@@ -11,6 +12,44 @@
 		@include respond('tab-port') {
 			width: 100%;
 			padding: 2rem 1rem;
+		}
+
+		.Input {
+			color: white;
+			padding: 1.5rem 2rem;
+			border-radius: 2px;
+			background-color: #121212;
+			border: none;
+			border-bottom: 3px solid transparent;
+			width: 100%;
+			display: block;
+			transition: all 0.3s;
+
+			@include respond('tab-port') {
+				font-size: 0.8rem;
+			}
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+				border-bottom: 3px solid $color-primary;
+			}
+
+			&:focus:invalid {
+				border-bottom: 3px solid #333;
+			}
+
+			&::-webkit-input-placeholder {
+				color: white;
+			}
+		}
+
+		.SubmitButton {
+			margin-top: 2rem;
+
+			@include respond('tab-port') {
+				margin-top: 1rem;
+			}
 		}
 
 		.NotifyMessage {

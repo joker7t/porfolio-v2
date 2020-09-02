@@ -20,6 +20,8 @@ const AboutContainer = ({ setMouseClass }) => {
 		container.current.onmouseleave = (e) => {
 			setMouseClass();
 		};
+
+		//eslint-disable-next-line
 	}, []);
 
 	return (

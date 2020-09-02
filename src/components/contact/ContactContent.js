@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import style from './scss/ContactContent.module.scss';
-import { Row, Col, Form, Button } from 'react-bootstrap';
 import FadeButton from '../../util/components/FadeButton';
 import axios from 'axios';
 
@@ -46,8 +45,9 @@ const ContactContent = () => {
 	return (
 		<div className={style.ContactContent}>
 			<div className={style.ContactForm}>
-				<Form className="mx-auto" onSubmit={handleSubmit}>
-					<Form.Control
+				<form onSubmit={handleSubmit}>
+					<input
+						className={style.Input}
 						type="name"
 						required
 						placeholder="Your name"
@@ -55,16 +55,17 @@ const ContactContent = () => {
 						value={contact.name}
 						onChange={handleChange}
 					/>
-					<Form.Control
+					<input
+						className={style.Input}
 						type="email"
 						required
-						placeholder="Enter email"
+						placeholder="Your email"
 						name="email"
 						value={contact.email}
 						onChange={handleChange}
 					/>
-					<Form.Control
-						as="textarea"
+					<textarea
+						className={style.Input}
 						required
 						placeholder="Enter message"
 						rows="5"
@@ -74,8 +75,10 @@ const ContactContent = () => {
 					/>
 					{notifyMessage ? <div className={style.NotifyMessage}>Send successfully</div> : null}
 					{errorMessage ? <div className={style.ErrorMessage}>Send failed</div> : null}
-					<FadeButton content="SEND" type="submit" />
-				</Form>
+					<div className={style.SubmitButton}>
+						<FadeButton content="SEND" type="submit" />
+					</div>
+				</form>
 			</div>
 			<div className={style.ContactMap}>
 				<iframe
@@ -88,7 +91,6 @@ const ContactContent = () => {
 					tabIndex="0"
 					title="map"
 					style={{ filter: 'brightness(70%)' }}
-					className="d-none d-md-block"
 				></iframe>
 			</div>
 		</div>
