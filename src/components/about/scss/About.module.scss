@@ -1,7 +1,27 @@
+@import '../../../util/scss/respond';
+@import '../../../util/scss/colors';
+
 .AboutContainer {
 	width: 100%;
 	min-height: 100vh;
+	height: 100%;
 	background: black;
-	text-align: center;
-	padding-top: 1.5rem;
+	padding: 1.5rem;
+	overflow-y: scroll;
+
+	@include respond('tab-land') {
+		text-align: center;
+	}
+
+	.ProgressBar {
+		position: fixed;
+		left: 98%;
+		background: rgba($color-primary, 0.4);
+		width: 1px;
+		z-index: 1000;
+
+		@media only screen and (hover: none) and (pointer: coarse) {
+			display: none;
+		}
+	}
 }
