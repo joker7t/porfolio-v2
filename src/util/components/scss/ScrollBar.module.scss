@@ -1,0 +1,18 @@
+@import '../../../util/scss/colors';
+@import '../../../util/scss/respond';
+
+.ScrollBar {
+	position: fixed;
+	left: 98%;
+	background: rgba($color-primary, 0.4);
+	width: 1px;
+	z-index: 800;
+
+	@include respond('tab-port') {
+		margin-top: -7vh;
+	}
+
+	@media only screen and (hover: none) and (pointer: coarse) {
+		display: none;
+	}
+}

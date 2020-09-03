@@ -90,6 +90,10 @@ $nav-theme: #242424;
 						width: 0.8rem;
 						left: 1.3rem;
 					}
+
+					@include respond('tab-port') {
+						top: -2px;
+					}
 				}
 				&:after {
 					display: block;

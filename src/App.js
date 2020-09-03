@@ -25,7 +25,6 @@ import 'splitting/dist/splitting-cells.css';
 function App() {
 	const loaderRef = useRef(null);
 	const contentRef = useRef(null);
-	const progressBarRef = useRef(null);
 	const coverAboveRef = useRef(null);
 	const coverUnderRef = useRef(null);
 
@@ -46,21 +45,8 @@ function App() {
 			setIsLoading(false);
 		}, 4000);
 
-		window.addEventListener('scroll', handleScroll);
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-
 		//eslint-disable-next-line
 	}, []);
-
-	const handleScroll = () => {
-		const scroll = document.documentElement.scrollTop;
-		const dh = document.documentElement.scrollHeight;
-		const wh = window.innerHeight;
-		const scrollPercent = (scroll / (dh - wh)) * 90;
-		progressBarRef.current.style.height = `${scrollPercent}%`;
-	};
 
 	const transition = () => {
 		var tl = new TimelineMax();
@@ -93,7 +79,6 @@ function App() {
 					<div className={style.CoverAbove} ref={coverAboveRef} />
 					<div className={style.CoverUnder} ref={coverUnderRef} />
 
-					<div className={style.ProgressBar} ref={progressBarRef}></div>
 					{isLoading ? null : (
 						<div>
 							<Router>

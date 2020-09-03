@@ -13,7 +13,9 @@
 
 .Loader {
 	position: fixed;
-	@include absCenter();
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
 	width: 60px;
 	height: 50px;
 	font-size: 10px;

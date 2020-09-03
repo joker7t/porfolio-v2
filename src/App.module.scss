@@ -135,19 +135,6 @@ $lines: #757474;
 	@include transform(translateY(100%));
 }
 
-.ProgressBar {
-	position: fixed;
-	left: 98%;
-	background: rgba($color-primary, 0.4);
-	width: 1px;
-	z-index: 1900;
-	margin-top: 5vh;
-
-	@media only screen and (hover: none) and (pointer: coarse) {
-		display: none;
-	}
-}
-
 .App {
 	display: flex;
 	height: 100%;
