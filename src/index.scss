@@ -1,7 +1,6 @@
 @import './util/scss/colors';
 @import './util/scss/transition';
 @import './util/scss/respond';
-@import './util/scss/keyframes';
 
 @font-face {
 	font-family: 'Cosi Azure';
@@ -76,11 +75,11 @@ button {
 
 	&:before {
 		top: 0%;
-		transform: translateY(-100%);
+		@include transform(translateY(-100%));
 	}
 	&:after {
 		bottom: 0%;
-		transform: translateY(100%);
+		@include transform(translateY(100%));
 	}
 }
 
@@ -88,12 +87,10 @@ button {
 	0%,
 	40%,
 	100% {
-		transform: scaleY(0.05);
-		-webkit-transform: scaleY(0.05);
+		@include transform(scaleY(0.05));
 	}
 	20% {
-		transform: scaleY(1);
-		-webkit-transform: scaleY(1);
+		@include transform(scaleY(1));
 	}
 }
 

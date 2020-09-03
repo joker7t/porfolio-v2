@@ -1,23 +1,22 @@
 import React, { useEffect, useRef } from 'react';
 import style from './scss/TextContainer.module.scss';
-import { TweenMax, gsap } from 'gsap';
-import SplitText from './SplitText.min.js';
+import { TweenMax } from 'gsap';
+import Splitting from 'splitting';
 
-gsap.registerPlugin(SplitText);
 const TextContainer = () => {
 	const textRef = useRef(null);
 
 	useEffect(() => {
-		var text = textRef.current;
-
-		var split = new SplitText(text);
+		const chars = Splitting({
+			target: textRef.current,
+		});
 
 		function random(min, max) {
 			return Math.random() * (max - min) + min;
 		}
 
-		split.chars.forEach((char, i) => {
-			TweenMax.from(char, 2.5, {
+		chars[0].chars.forEach((char, i) => {
+			TweenMax.from(char, 2, {
 				opacity: 0,
 				x: random(-500, 500),
 				y: random(-500, 500),
@@ -27,6 +26,7 @@ const TextContainer = () => {
 				yoyo: true
 			});
 		});
+		//eslint-disable-next-line
 	}, []);
 
 	return (

@@ -9,10 +9,10 @@
 
 	h1 {
 		color: white;
-		animation: text-shadow 1.5s ease-in-out infinite;
+		@include animation(text-shadow 1.5s ease-in-out infinite);
 		font-size: 4.5rem;
 		font-weight: 900;
-		transform: skewY(-3deg);
+		@include transform(skewY(-3deg));
 
 		span:nth-child(2) {
 			color: $color-primary;
@@ -38,37 +38,37 @@
 $shadow-font: 4px;
 @keyframes text-shadow {
 	0% {
-		transform: skewY(-3deg) translateY(0);
+		@include transform(skewY(-3deg) translateY(0));
 		text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
 	}
 
 	20% {
-		transform: skewY(-3deg) translateY(-3px);
+		@include transform(skewY(-3deg) translateY(-3px));
 		text-shadow: 0 $shadow-font 0 #0c2ffb, 0 $shadow-font 0 #2cfcfd, 0 -$shadow-font 0 #fb203b,
 			0 -$shadow-font 0 #fefc4b;
 	}
 
 	40% {
-		transform: skewY(-3deg) translateY(3px);
+		@include transform(skewY(-3deg) translateY(3px));
 		text-shadow: 0 -$shadow-font 0 #0c2ffb, 0 -$shadow-font 0 #2cfcfd, 0 $shadow-font 0 #fb203b,
 			0 $shadow-font 0 #fefc4b;
 	}
 
 	60% {
-		transform: skewY(-3deg) translateY(-3px);
+		@include transform(skewY(-3deg) translateY(-3px));
 		text-shadow: 0 $shadow-font 0 #0c2ffb, 0 $shadow-font 0 #2cfcfd, 0 -$shadow-font 0 #fb203b,
 			0 -$shadow-font 0 #fefc4b;
 	}
 
 	80% {
-		transform: skewY(-3deg) translateY(0);
+		@include transform(skewY(-3deg) translateY(0));
 		text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb203b, 0 0 0 #fefc4b;
 	}
 }
 
 @media (prefers-reduced-motion: reduce) {
 	* {
-		animation: none !important;
-		transition: none !important;
+		@include animation(none !important);
+		@include transition(none !important);
 	}
 }

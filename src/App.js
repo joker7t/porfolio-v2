@@ -20,6 +20,8 @@ import Natours1 from './resources/images/works/natours/image-1.png';
 import Trillo1 from './resources/images/works/trillo/image-1.png';
 import Slack1 from './resources/images/works/slack-chat/image-1.png';
 import Shopping1 from './resources/images/works/shopping/image-1.png';
+import 'splitting/dist/splitting.css';
+import 'splitting/dist/splitting-cells.css';
 
 gsap.registerPlugin(CSSRulePlugin);
 

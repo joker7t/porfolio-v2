@@ -1,5 +1,6 @@
 @import '../../scss/colors';
 @import '../../scss/respond';
+@import '../../scss/transition';
 
 .TwoSidesButton {
 	background: transparent;
@@ -29,20 +30,20 @@
 		text-transform: uppercase;
 		letter-spacing: 3px;
 		opacity: 0;
-		transform: translate(-100%, 0);
-		transition: all 0.3s ease-in-out;
+		@include transform(translate(-100%, 0));
+		@include transition(all 0.3s ease-in-out);
 		overflow: hidden;
 	}
 
 	&:hover {
 		div {
 			opacity: 0;
-			transform: translate(50%, 0);
+			@include transform(translate(50%, 0));
 		}
 
 		&::before {
 			opacity: 1;
-			transform: translate(0, 0);
+			@include transform(translate(0, 0));
 		}
 	}
 }

@@ -52,7 +52,7 @@ export default (container, inner) => {
 		const style = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg)';
 		inner.style.transform = style;
 		inner.style.webkitTransform = style;
-		inner.style.mozTranform = style;
+		inner.style.mozTransform = style;
 		inner.style.msTransform = style;
 		inner.style.oTransform = style;
 	};

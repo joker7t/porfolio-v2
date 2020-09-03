@@ -1,6 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import 'splitting/dist/splitting.css';
-import 'splitting/dist/splitting-cells.css';
 import Splitting from 'splitting';
 import './scss/project-container.scss';
 import style from './scss/ProjectContainer.module.scss';
