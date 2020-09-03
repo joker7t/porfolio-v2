@@ -10,6 +10,7 @@ import data from './skills-data';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setMouseClass } from '../../actions/mouseAction';
+import ScrollBar from '../../util/components/ScrollBar';
 
 const Skill = ({ setMouseClass }) => {
 	const tl = new TimelineMax({ paused: true });
@@ -67,6 +68,7 @@ const Skill = ({ setMouseClass }) => {
 
 	return (
 		<div className={style.Skill}>
+			<ScrollBar />
 			<div className={style.SlideWrapper}>
 				<div className={style.SmallCircles}>
 					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[0] = el)}></div>
