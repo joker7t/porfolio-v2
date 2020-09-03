@@ -60,29 +60,6 @@ button {
 	}
 }
 
-#appContent {
-	overflow: hidden;
-	&:before,
-	&:after {
-		content: '';
-		height: 51vh;
-		width: 100%;
-		position: absolute;
-		left: 0;
-		background: #1c2020;
-		z-index: 900;
-	}
-
-	&:before {
-		top: 0%;
-		@include transform(translateY(-100%));
-	}
-	&:after {
-		bottom: 0%;
-		@include transform(translateY(100%));
-	}
-}
-
 @keyframes delay {
 	0%,
 	40%,

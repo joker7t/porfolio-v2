@@ -68,11 +68,7 @@ const NavigationBar = ({ transition, setMouseClass }) => {
 	return (
 		<div className={style.NavigationBar}>
 			<DelayLink delay={1700} to="/" onDelayStart={transition}>
-				<div
-					className={style.PowerButton}
-					onClick={() => handleChoseLink('')}
-					ref={powerButtonRef}
-				>
+				<div className={style.PowerButton} onClick={() => handleChoseLink('')} ref={powerButtonRef}>
 					<div className={`${style.Power} ${isPowerActive ? style.Active : ''}`}>
 						<span ref={line1Ref}></span>
 						<span ref={line2Ref}></span>

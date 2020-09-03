@@ -5,17 +5,4 @@
 	height: 100%;
 	background: black;
 	padding-top: 2rem;
-	overflow-y: scroll;
-
-	.ProgressBar {
-		position: fixed;
-		left: 98%;
-		background: rgba($color-primary, 0.4);
-		width: 1px;
-		z-index: 1000;
-
-		@media only screen and (hover: none) and (pointer: coarse) {
-			display: none;
-		}
-	}
 }

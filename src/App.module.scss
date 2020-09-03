@@ -115,6 +115,39 @@ $lines: #757474;
 	}
 }
 
+.CoverAbove,
+.CoverUnder {
+	height: 51vh;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	background: #1c2020;
+	z-index: 1998;
+}
+
+.CoverAbove {
+	top: 0;
+	@include transform(translateY(-100%));
+}
+
+.CoverUnder {
+	bottom: 0;
+	@include transform(translateY(100%));
+}
+
+.ProgressBar {
+	position: fixed;
+	left: 98%;
+	background: rgba($color-primary, 0.4);
+	width: 1px;
+	z-index: 1900;
+	margin-top: 5vh;
+
+	@media only screen and (hover: none) and (pointer: coarse) {
+		display: none;
+	}
+}
+
 .App {
 	display: flex;
 	height: 100%;
@@ -125,10 +158,16 @@ $lines: #757474;
 	.AppContent {
 		position: relative;
 		flex-grow: 1;
-		height: 100vh;
+		min-height: 100vh;
+		padding-left: 4.5rem;
+
+		@include respond('tab-land') {
+			padding-left: 3.5rem;
+		}
 
 		@include respond('tab-port') {
-			height: calc(100vh - 3.5rem);
+			padding-left: 0;
+			padding-top: 3.5rem;
 		}
 	}
 }

@@ -9,12 +9,12 @@ const Title = () => {
 
 	useEffect(() => {
 		const tl = new TimelineMax();
-		tl.from(titleTextLeftRef.current, 1, { marginRight: '50%', opacity: 0, ease: Bounce.easeOut }, 0)
+		tl.from(titleTextLeftRef.current, 1, { x: -500, opacity: 0, ease: Bounce.easeOut }, 0)
 			.from(
 				titleTextRightRef.current,
 				1,
 				{
-					marginLeft: '50%',
+					x: 500,
 					opacity: 0,
 					ease: Bounce.easeOut,
 				},
@@ -24,7 +24,7 @@ const Title = () => {
 				titleEmailRefs.current,
 				0.5,
 				{
-					transform: 'translateY(-200%',
+					transform: 'translateY(-200%)',
 					opacity: 0,
 					ease: Power3.easeIn,
 				},
@@ -35,12 +35,12 @@ const Title = () => {
 	}, []);
 	return (
 		<div className={style.Title}>
-			<span className={style.Text} ref={titleTextLeftRef}>
+			<div className={style.Text} ref={titleTextLeftRef}>
 				CON
-			</span>
-			<span className={style.Text} ref={titleTextRightRef}>
+			</div>
+			<div className={style.Text} ref={titleTextRightRef}>
 				TACT
-			</span>
+			</div>
 
 			<span className={style.Email}>
 				<span ref={(el) => (titleEmailRefs.current[0] = el)}>j</span>

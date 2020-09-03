@@ -10,6 +10,7 @@
 		-webkit-text-stroke-color: orange;
 		font-size: 6rem;
 		font-family: 'Arvo', serif;
+		display: inline-block;
 
 		@include respond('tab-land') {
 			font-size: 4rem;

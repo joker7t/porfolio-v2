@@ -10,8 +10,7 @@ import Work from './components/work/Work';
 import Contact from './components/contact/Contact';
 import NavigationBar from './util/components/NavigationBar';
 import Loading from './util/components/Loading';
-import { TimelineMax, Power2, gsap } from 'gsap';
-import { CSSRulePlugin } from 'gsap/CSSRulePlugin';
+import { TimelineMax, Power2 } from 'gsap';
 import Mouse from './util/components/Mouse';
 import Manc1 from './resources/images/works/man-city/image-1.png';
 import Waves1 from './resources/images/works/the-waves/image-1.png';
@@ -23,10 +22,13 @@ import Shopping1 from './resources/images/works/shopping/image-1.png';
 import 'splitting/dist/splitting.css';
 import 'splitting/dist/splitting-cells.css';
 
-gsap.registerPlugin(CSSRulePlugin);
-
 function App() {
 	const loaderRef = useRef(null);
+	const contentRef = useRef(null);
+	const progressBarRef = useRef(null);
+	const coverAboveRef = useRef(null);
+	const coverUnderRef = useRef(null);
+
 	const workImages = {
 		manc: Manc1,
 		waves: Waves1,
@@ -44,40 +46,30 @@ function App() {
 			setIsLoading(false);
 		}, 4000);
 
+		window.addEventListener('scroll', handleScroll);
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+
 		//eslint-disable-next-line
 	}, []);
+
+	const handleScroll = () => {
+		const scroll = document.documentElement.scrollTop;
+		const dh = document.documentElement.scrollHeight;
+		const wh = window.innerHeight;
+		const scrollPercent = (scroll / (dh - wh)) * 90;
+		progressBarRef.current.style.height = `${scrollPercent}%`;
+	};
 
 	const transition = () => {
 		var tl = new TimelineMax();
 
 		tl.to(loaderRef.current, 0.2, { opacity: 1 })
-			.to(
-				CSSRulePlugin.getRule(`#appContent:before`),
-				0.2,
-				{ cssRule: { top: '51%' }, ease: Power2.easeOut },
-				'close'
-			)
-			.to(
-				CSSRulePlugin.getRule(`#appContent:after`),
-				0.2,
-				{ cssRule: { bottom: '51%' }, ease: Power2.easeOut },
-				'close'
-			)
-
-			.to(
-				CSSRulePlugin.getRule(`#appContent:before`),
-				0.2,
-				{ cssRule: { top: '0%' }, ease: Power2.easeOut },
-				'+=1.5',
-				'open'
-			)
-			.to(
-				CSSRulePlugin.getRule(`#appContent:after`),
-				0.2,
-				{ cssRule: { bottom: '0%' }, ease: Power2.easeOut },
-				'-=0.2',
-				'open'
-			)
+			.to(coverAboveRef.current, 0.2, { top: '51%', ease: Power2.easeOut }, 'close')
+			.to(coverUnderRef.current, 0.2, { bottom: '51%', ease: Power2.easeOut }, 'close')
+			.to(coverAboveRef.current, 0.2, { top: '0%', ease: Power2.easeOut }, '+=1.5', 'open')
+			.to(coverUnderRef.current, 0.2, { bottom: '0%', ease: Power2.easeOut }, '-=0.2', 'open')
 			.to(loaderRef.current, 0.2, { opacity: 0 }, '-=0.2');
 	};
 
@@ -98,14 +90,16 @@ function App() {
 					</div>
 				</div>
 				<div className={style.Container}>
+					<div className={style.CoverAbove} ref={coverAboveRef} />
+					<div className={style.CoverUnder} ref={coverUnderRef} />
+
+					<div className={style.ProgressBar} ref={progressBarRef}></div>
 					{isLoading ? null : (
 						<div>
 							<Router>
 								<div className={style.App}>
-									<div className={style.NavBar}>
-										<NavigationBar transition={transition} />
-									</div>
-									<div className={style.AppContent} id="appContent">
+									<NavigationBar transition={transition} />
+									<div className={style.AppContent} ref={contentRef}>
 										<Loading loaderRef={loaderRef} />
 										<Switch>
 											<Route exact path="/" component={Home} delay={200} />
