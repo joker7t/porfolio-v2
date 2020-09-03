@@ -5,7 +5,6 @@ import TwoSidesButton from '../../util/components/TwoSidesButton';
 import { TimelineMax, Power3 } from 'gsap';
 import FadeButton from '../../util/components/FadeButton';
 import * as am4core from '@amcharts/amcharts4/core';
-import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import * as am4plugins_wordCloud from '@amcharts/amcharts4/plugins/wordCloud';
 import data from './skills-data';
 import { connect } from 'react-redux';
@@ -32,15 +31,8 @@ const Skill = ({ setMouseClass }) => {
 		skillMapContainerRef.current.onmouseleave = (e) => {
 			setMouseClass();
 		};
-		//eslint-disable-next-line
-	}, []);
 
-	const handleViewSkillMap = () => {
 		am4core.ready(function () {
-			// Themes begin
-			am4core.useTheme(am4themes_animated);
-			// Themes end
-
 			const chart = am4core.create('skill-chart', am4plugins_wordCloud.WordCloud);
 			chart.fontFamily = 'Courier New';
 			const series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
@@ -62,6 +54,10 @@ const Skill = ({ setMouseClass }) => {
 			hoverState.properties.fill = am4core.color('#C98D4B');
 		});
 
+		//eslint-disable-next-line
+	}, []);
+
+	const handleViewSkillMap = () => {
 		tl.play();
 	};
 
