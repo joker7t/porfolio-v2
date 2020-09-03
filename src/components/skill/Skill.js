@@ -70,40 +70,29 @@ const Skill = ({ setMouseClass }) => {
 	};
 
 	return (
-		<div className={style.SkillContainer}>
-			<div className={style.BigCircles}>
-				<div className={style.BigCircle}></div>
-				<div className={style.BigCircle}></div>
-				<div className={style.BigCircle}></div>
-			</div>
-			<section>
-				<div className={style.SlideWrapper}>
-					<div className={style.SmallCircles}>
-						<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[0] = el)}></div>
-						<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[1] = el)}></div>
-						<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[3] = el)}></div>
-						<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[4] = el)}></div>
-						<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[5] = el)}></div>
-						<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[6] = el)}></div>
+		<div className={style.Skill}>
+			<div className={style.SlideWrapper}>
+				<div className={style.SmallCircles}>
+					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[0] = el)}></div>
+					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[1] = el)}></div>
+					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[3] = el)}></div>
+					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[4] = el)}></div>
+					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[5] = el)}></div>
+					<div className={style.SmallCircle} ref={(el) => (smallCircleRefs.current[6] = el)}></div>
+				</div>
+				<div className={style.ContentWrapper} ref={contentRef}>
+					<div className={style.CoverWrapper}>
+						<div>
+							<Intro setMouseClass={setMouseClass} />
+							<TwoSidesButton firstSide="my skill map" secondSide="view" onClick={handleViewSkillMap} />
+						</div>
 					</div>
-					<div className={style.ContentWrapper} ref={contentRef}>
-						<div className={style.CoverWrapper}>
-							<div>
-								<Intro setMouseClass={setMouseClass} />
-								<TwoSidesButton
-									firstSide="my skill map"
-									secondSide="view"
-									onClick={handleViewSkillMap}
-								/>
-							</div>
-						</div>
-						<div className={style.SkillMapWrapper}>
-							<div className={style.SkillMapContainer} ref={skillMapContainerRef} id="skill-chart"></div>
-							<FadeButton content="back" onClick={handleBack} />
-						</div>
+					<div className={style.SkillMapWrapper}>
+						<div className={style.SkillMapContainer} ref={skillMapContainerRef} id="skill-chart"></div>
+						<FadeButton content="back" onClick={handleBack} />
 					</div>
 				</div>
-			</section>
+			</div>
 		</div>
 	);
 };

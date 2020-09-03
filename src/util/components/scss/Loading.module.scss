@@ -12,15 +12,11 @@
 }
 
 .Loader {
-	margin: 0 auto;
+	position: fixed;
+	@include absCenter();
 	width: 60px;
 	height: 50px;
-	text-align: center;
 	font-size: 10px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	@include transform(translateY(-50%) translateX(-50%));
 	z-index: 1999;
 	opacity: 0;
 

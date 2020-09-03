@@ -151,15 +151,13 @@ $lines: #757474;
 .App {
 	display: flex;
 	height: 100%;
-	@include respond('tab-port') {
-		display: block;
-	}
 
 	.AppContent {
 		position: relative;
 		flex-grow: 1;
 		min-height: 100vh;
 		padding-left: 4.5rem;
+		background-color: $color-black;
 
 		@include respond('tab-land') {
 			padding-left: 3.5rem;

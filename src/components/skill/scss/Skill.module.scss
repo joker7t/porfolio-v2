@@ -4,188 +4,142 @@
 $color-background: #141414;
 $color-wrapper: #000;
 $color-small-circle: $color-background;
-$color-big-circle: #222222;
 
-.SkillContainer {
+.Skill {
 	width: 100%;
-	min-height: 100%;
+	height: 100%;
 	background: $color-background;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	.SlideWrapper {
-		position: relative;
 		overflow: hidden;
 		height: 90%;
 		width: 90%;
 		z-index: 3;
 		background-color: $color-wrapper;
-		@include absCenter();
+		position: relative;
+
+		.SmallCircles {
+			position: absolute;
+			z-index: -2;
+			width: 100%;
+			height: 100%;
+			animation: infinite-rotation 150s infinite;
+		}
+
+		.SmallCircle {
+			position: inherit;
+			display: block;
+			width: 250px;
+			height: 250px;
+			background: $color-small-circle;
+			margin-top: -125px;
+			margin-left: -125px;
+			border-radius: 125px;
+			-webkit-animation: smallcircle 0.8s ease-in-out alternate;
+			-moz-animation: smallcircle 0.8s ease-in-out alternate;
+			animation: smallcircle 0.8s ease-in-out alternate;
+
+			@include respond('desktop') {
+				width: 175px;
+				height: 175px;
+			}
+
+			@include respond('phone') {
+				width: 125px;
+				height: 125px;
+			}
+
+			&:nth-child(1) {
+				top: 12%;
+				left: 24%;
+			}
+			&:nth-child(2) {
+				display: block;
+				top: 18%;
+				left: 44%;
+			}
+			&:nth-child(3) {
+				display: block;
+				top: 78%;
+				left: 5%;
+			}
+			&:nth-child(4) {
+				display: block;
+				top: 78%;
+				left: 56%;
+			}
+			&:nth-child(5) {
+				display: block;
+				top: 38%;
+				left: 86%;
+			}
+			&:nth-child(6) {
+				display: block;
+				top: 86%;
+				left: 96%;
+			}
+		}
 	}
 
 	.ContentWrapper {
 		width: 100%;
 		height: 100%;
-	}
 
-	.CoverWrapper {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 1rem;
-
-		div {
-			text-align: center;
-		}
-	}
-
-	.SkillMapWrapper {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		background: $color-wrapper;
-		padding-bottom: 2rem;
-		cursor: none;
-
-		div {
-			text-align: center;
-		}
-
-		.SkillMapContainer {
+		.CoverWrapper {
 			width: 100%;
-			flex-grow: 1;
-			margin-bottom: 2rem;
-			position: relative;
-			opacity: 0;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1rem;
 
-			&::before {
-				position: absolute;
-				content: '';
-				display: inline-block;
-				left: 0;
-				bottom: 0;
-				width: 4rem;
-				height: 2rem;
-				background-color: $color-wrapper;
-				z-index: 10;
+			div {
+				text-align: center;
+			}
+		}
+
+		.SkillMapWrapper {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background: $color-wrapper;
+			padding-bottom: 2rem;
+			cursor: none;
+
+			div {
+				text-align: center;
+			}
+
+			.SkillMapContainer {
+				width: 100%;
+				flex-grow: 1;
+				margin-bottom: 2rem;
+				position: relative;
+				opacity: 0;
+
+				&::before {
+					position: absolute;
+					content: '';
+					display: inline-block;
+					left: 0;
+					bottom: 0;
+					width: 4rem;
+					height: 2rem;
+					background-color: $color-wrapper;
+					z-index: 10;
+				}
 			}
 		}
 	}
-
-	.SmallCircles {
-		position: absolute;
-		z-index: -2;
-		width: 100%;
-		height: 100%;
-		animation: infinite-rotation 150s infinite;
-	}
-
-	.SmallCircle {
-		position: inherit;
-		display: block;
-		width: 250px;
-		height: 250px;
-		background: $color-small-circle;
-		margin-top: -125px;
-		margin-left: -125px;
-		border-radius: 125px;
-		-webkit-animation: smallcircle 0.8s ease-in-out alternate;
-		-moz-animation: smallcircle 0.8s ease-in-out alternate;
-		animation: smallcircle 0.8s ease-in-out alternate;
-
-		@include respond('desktop') {
-			width: 175px;
-			height: 175px;
-		}
-
-		@include respond('phone') {
-			width: 125px;
-			height: 125px;
-		}
-
-		&:nth-child(1) {
-			top: 12%;
-			left: 24%;
-		}
-		&:nth-child(2) {
-			display: block;
-			top: 18%;
-			left: 44%;
-		}
-		&:nth-child(3) {
-			display: block;
-			top: 78%;
-			left: 5%;
-		}
-		&:nth-child(4) {
-			display: block;
-			top: 78%;
-			left: 56%;
-		}
-		&:nth-child(5) {
-			display: block;
-			top: 38%;
-			left: 86%;
-		}
-		&:nth-child(6) {
-			display: block;
-			top: 86%;
-			left: 96%;
-		}
-	}
-
-	.BigCircles {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		@include animation(infinite-rotation 125s infinite);
-	}
-
-	.BigCircle {
-		position: inherit;
-		display: block;
-		width: 450px;
-		height: 450px;
-		background: $color-big-circle;
-		margin-top: -250px;
-		margin-left: -250px;
-		border-radius: 250px;
-		@include animation(bigcircle 1.6s ease-in-out alternate);
-		z-index: 1;
-
-		@include respond('desktop') {
-			width: 400px;
-			height: 400px;
-		}
-
-		@include respond('phone') {
-			width: 300px;
-			height: 300px;
-		}
-
-		&:nth-child(1) {
-			top: 12%;
-			left: 4%;
-		}
-
-		&:nth-child(2) {
-			display: block;
-			top: 38%;
-			left: 86%;
-		}
-
-		&:nth-child(3) {
-			display: block;
-			top: 78%;
-			left: 0%;
-		}
-	}
 }
 
-@include keyframes (smallcircle) {
+@include keyframes(smallcircle) {
 	0% {
 		@include transform(scale(0));
 	}
@@ -195,19 +149,7 @@ $color-big-circle: #222222;
 	}
 }
 
-@include keyframes (bigcircle) {
-	0% {
-		@include transform(scale(0));
-	}
-	50% {
-		@include transform(scale(0));
-	}
-	100% {
-		@include transform(scale(1));
-	}
-}
-
-@include keyframes (infinite-rotation) {
+@include keyframes(infinite-rotation) {
 	from {
 		@include transform(rotate(0deg));
 	}
