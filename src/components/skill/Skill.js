@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import style from './scss/Skill.module.scss';
 import Intro from './Intro';
 import TwoSidesButton from '../../util/components/TwoSidesButton';
