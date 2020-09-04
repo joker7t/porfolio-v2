@@ -4,6 +4,7 @@ import Intro from './Intro';
 import Title from './Title';
 import ContactContent from './ContactContent';
 import ScrollBar from '../../util/components/ScrollBar';
+import ContactLink from './ContactLink';
 
 const Contact = () => {
 	useEffect(() => {}, []);
@@ -14,6 +15,7 @@ const Contact = () => {
 			<Title />
 			<Intro />
 			<ContactContent />
+			<ContactLink />
 		</div>
 	);
 };

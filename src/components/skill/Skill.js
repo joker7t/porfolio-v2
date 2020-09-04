@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import style from './scss/Skill.module.scss';
 import Intro from './Intro';
 import TwoSidesButton from '../../util/components/TwoSidesButton';
@@ -6,6 +6,7 @@ import { TimelineMax, Power3 } from 'gsap';
 import FadeButton from '../../util/components/FadeButton';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4plugins_wordCloud from '@amcharts/amcharts4/plugins/wordCloud';
+import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 import data from './skills-data';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -17,6 +18,8 @@ const Skill = ({ setMouseClass }) => {
 	const smallCircleRefs = useRef([]);
 	const contentRef = useRef(null);
 	const skillMapContainerRef = useRef(null);
+
+	let isSkillMapShown = false;
 
 	useEffect(() => {
 		tl.to(smallCircleRefs.current, 1, { transform: 'scale(0)', ease: Power3.easeOut })
@@ -33,7 +36,12 @@ const Skill = ({ setMouseClass }) => {
 			setMouseClass();
 		};
 
+		//eslint-disable-next-line
+	}, []);
+
+	const showSkillMap = () => {
 		am4core.ready(function () {
+			am4core.useTheme(am4themes_animated);
 			const chart = am4core.create('skill-chart', am4plugins_wordCloud.WordCloud);
 			chart.fontFamily = 'Courier New';
 			const series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
@@ -54,15 +62,20 @@ const Skill = ({ setMouseClass }) => {
 			const hoverState = series.labels.template.states.create('hover');
 			hoverState.properties.fill = am4core.color('#C98D4B');
 		});
-
-		//eslint-disable-next-line
-	}, []);
+	};
 
 	const handleViewSkillMap = () => {
+		if (!isSkillMapShown) {
+			setTimeout(() => {
+				showSkillMap();
+				isSkillMapShown = true;
+			}, 2000);
+		}
 		tl.play();
 	};
 
 	const handleBack = () => {
+		console.log(123);
 		tl.reverse();
 	};
 

@@ -1,0 +1,61 @@
+@import '../../../util//scss/colors';
+@import '../../../util//scss/transition';
+
+.ContactLink {
+	display: block;
+	text-align: center;
+
+	.ContactIconContainer {
+		.ContactIcon {
+			display: inline-block;
+			margin-left: 1rem;
+			margin-right: 1rem;
+			background-color: white;
+			width: 3rem;
+			height: 3rem;
+			padding-top: 0.5rem;
+			cursor: pointer;
+			border-radius: 50%;
+			position: relative;
+			z-index: 100;
+
+			a {
+				z-index: 101;
+				color: $color-black;
+				cursor: pointer;
+				position: relative;
+			}
+
+			&::after {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				width: 100%;
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 99;
+				@include transition(all 0.4s);
+				background-color: white;
+			}
+
+			&:hover {
+				&::after {
+					@include transform(scaleX(1.4) scaleY(1.6));
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	.ContactText {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		color: white;
+		.ContactTextHighlight {
+			color: $color-primary;
+			font-size: 1.2rem;
+		}
+	}
+}
