@@ -6,10 +6,12 @@ import ScrollBar from '../../util/components/ScrollBar';
 
 const About = () => {
 	return (
-		<div className={style.AboutContainer}>
+		<div className={style.About}>
 			<ScrollBar />
-			<Title />
-			<AboutContainer />
+			<div className={style.AboutContainer}>
+				<Title />
+				<AboutContainer />
+			</div>
 		</div>
 	);
 };

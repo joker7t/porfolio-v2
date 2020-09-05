@@ -2,15 +2,19 @@
 
 .TextContainer {
 	width: 100%;
+	max-width: 1500px;
 	padding: 1rem;
 	color: white;
-	text-align: justify;
+	text-align: center;
+	margin-top: 2rem;
 
 	@include respond('tab-land') {
 		font-size: 0.9rem;
+		margin-top: 1.5rem;
 	}
 
 	@include respond('tab-port') {
 		font-size: 0.8rem;
+		margin-top: 1rem;
 	}
 }
