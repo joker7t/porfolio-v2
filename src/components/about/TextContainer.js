@@ -36,19 +36,20 @@ const TextContainer = () => {
 	return (
 		<div className={style.TextContainer}>
 			<p ref={textRef}>
-				I’m Toan Nguyen - a Web developer in Axon Active Vietnam. <br />
+				I’m Toan Nguyen - a Web developer in Axon Active Vietnam.
+				<br />
 				I have over 2 years of developing web applications. I am working as a Full-stack developer for projects
 				about fintech and e-commerce. My experience includes MySql, Postgres, MongoDB, Java, JSF, Spring,
 				Javascript, Node JS, React JS, Nginx, Docker. I love to make websites not only have an attractive and
 				clear design but also have a high performance.
 				<br />
-				Besides technologies, I believe the way to create products also plays a major role in quality.
+				Besides technologies, I believe the way to create products also plays a major role in quality. that why
+				Kanban and Scrum process mean a lot to me. Familiar with them helps me bring the highest quality
+				products with full requirements to customers.
 				<br />
-				Besides that, I am familiar with Kanban & Scrum process. More important, I’m confident, hard-working and
-				interested in learning new things.
-				<br />
-				Last but not least, keep updating is the principle that I never forget. I am interested in learning new
-				things
+				Last but not least, I am a self-learner. Keep updating is the principle that I never forget. I am
+				interested in learning new things to upgrade myself day by day. Facing and going over the impediments is
+				my destination.
 			</p>
 		</div>
 	);
