@@ -9,7 +9,7 @@
 	z-index: 800;
 
 	@include respond('tab-port') {
-		margin-top: 0.5rem;
+		margin-top: -1rem;
 	}
 
 	@media only screen and (hover: none) and (pointer: coarse) {
