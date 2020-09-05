@@ -43,8 +43,8 @@ const TextContainer = () => {
 				Javascript, Node JS, React JS, Nginx, Docker. I love to make websites not only have an attractive and
 				clear design but also have a high performance.
 				<br />
-				Besides technologies, I believe the way to create products also plays a major role in quality. that why
-				Kanban and Scrum process mean a lot to me. Familiar with them helps me bring the highest quality
+				Besides technologies, I believe the way to create products also plays a major role in quality. that's
+				why Kanban and Scrum process mean a lot to me. Familiar with them helps me bring the highest quality
 				products with full requirements to customers.
 				<br />
 				Last but not least, I am a self-learner. Keep updating is the principle that I never forget. I am
