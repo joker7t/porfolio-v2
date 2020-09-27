@@ -17,25 +17,27 @@ const ProjectContainer = ({ setMouseClass, workImages }) => {
 			image: true,
 		});
 
-		projectRefs.current.forEach((projectRef, i) => {
-			projectRef.onmouseover = (e) => {
-				setMouseClass('preview');
-			};
-			projectRef.onmouseleave = (e) => {
-				setMouseClass();
-			};
-		});
+		setTimeout(() => {
+			projectRefs.current.forEach((projectRef, i) => {
+				projectRef.onmouseover = (e) => {
+					setMouseClass('preview');
+				};
+				projectRef.onmouseleave = (e) => {
+					setMouseClass();
+				};
+			});
 
-		linkRefs.current.forEach((linkRef, i) => {
-			linkRef.onmouseover = (e) => {
-				e.stopPropagation();
-				setMouseClass('click');
-			};
-			linkRef.onmouseleave = (e) => {
-				e.stopPropagation();
-				setMouseClass();
-			};
-		});
+			linkRefs.current.forEach((linkRef, i) => {
+				linkRef.onmouseover = (e) => {
+					e.stopPropagation();
+					setMouseClass('click');
+				};
+				linkRef.onmouseleave = (e) => {
+					e.stopPropagation();
+					setMouseClass();
+				};
+			});
+		}, 500);
 		//eslint-disable-next-line
 	}, []);
 
