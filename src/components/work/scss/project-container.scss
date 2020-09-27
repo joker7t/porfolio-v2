@@ -27,6 +27,8 @@
 			visibility: visible;
 			letter-spacing: 2px;
 			margin: 0;
+			opacity: 0;
+			@include transition(all 0.5s);
 
 			@include respond('tab-land') {
 				font-size: 1.5rem;
@@ -147,6 +149,12 @@
 					@include transform(rotateZ(90deg));
 				}
 			}
+		}
+	}
+
+	.project-view:hover {
+		.splitting__text {
+			opacity: 1;
 		}
 	}
 }
