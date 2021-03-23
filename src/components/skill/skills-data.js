@@ -12,6 +12,14 @@ export default [
         "count": "90"
     },
     {
+        "tag": "vue",
+        "count": "80"
+    },
+    {
+        "tag": "kubernetes",
+        "count": "70"
+    },
+    {
         "tag": "spring",
         "count": "60"
     },
@@ -37,11 +45,11 @@ export default [
     },
     {
         "tag": "material-ui",
-        "count": "70"
+        "count": "40"
     },
     {
         "tag": "docker",
-        "count": "50"
+        "count": "80"
     },
     {
         "tag": "firebase",
@@ -100,7 +108,7 @@ export default [
         "count": "80"
     },
     {
-        "tag": "drools",
+        "tag": "expressJS",
         "count": "60"
     },
     {
@@ -109,6 +117,6 @@ export default [
     },
     {
         "tag": "microservices",
-        "count": "60"
+        "count": "70"
     },
 ];
