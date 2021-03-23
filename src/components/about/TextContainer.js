@@ -5,11 +5,11 @@ const TextContainer = () => {
 	return (
 		<div className={style.TextContainer}>
 			<p>
-				I’m Toan Nguyen - a Web developer in Axon Active Vietnam.
+				I’m Toan Nguyen - a software developer in HitaTek.
 				<br />
-				I have over 2 years of developing web applications. I am working as a Full-stack developer for projects
-				about fintech and e-commerce. My experience includes MySql, Postgres, MongoDB, Java, JSF, Spring,
-				Javascript, Node JS, React JS, Nginx, Docker. I love to make websites not only have an attractive and
+				I have 3 years of developing web applications. I am working as a Full-stack developer for project
+				about crawling data system base on microservices. My experience includes MySql, MongoDB, Java, Spring,
+				Javascript, Node JS, React JS, Vue JS, Docker, Kubernetes. I love to make products not only have an attractive and
 				clear design but also have a high performance.
 				<br />
 				Besides technologies, I believe the way to create products also plays a major role in quality. that's
